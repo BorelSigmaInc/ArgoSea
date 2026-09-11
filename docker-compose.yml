@@ -1,0 +1,61 @@
+# docker-compose.yml
+services:
+  argosea-api:
+    build: .
+    image: argosea-api:0.3.0
+    container_name: argosea-api
+    ports:
+      - "8001:8000"
+    volumes:
+      - ./data:/app/data
+    environment:
+      - ARGO_DB_HOST=argosea-db
+      - ARGO_DB_PORT=5432
+      - ARGO_DB_NAME=argosea
+      - ARGO_DB_USER=argosea
+      - ARGO_DB_PASSWORD=changeme
+      - ARGO_IBM_BACKEND=ibm_fez
+      - ARGO_MAX_QUBITS=150
+    depends_on:
+      - argosea-db
+    restart: unless-stopped
+
+  argosea-db:
+    image: postgres:16-alpine
+    container_name: argosea-db
+    environment:
+      - POSTGRES_DB=argosea
+      - POSTGRES_USER=argosea
+      - POSTGRES_PASSWORD=changeme
+    volumes:
+      - argosea-pgdata:/var/lib/postgresql/data
+    ports:
+      - "5433:5432"
+    restart: unless-stopped
+
+  argosea-zookeeper:
+    image: confluentinc/cp-zookeeper:7.5.0
+    container_name: argosea-zookeeper
+    environment:
+      ZOOKEEPER_CLIENT_PORT: 2181
+      ZOOKEEPER_TICK_TIME: 2000
+    restart: unless-stopped
+
+  argosea-kafka:
+    image: confluentinc/cp-kafka:7.5.0
+    container_name: argosea-kafka
+    depends_on:
+      - argosea-zookeeper
+    ports:
+      - "9092:9092"
+    environment:
+      KAFKA_BROKER_ID: 1
+      KAFKA_ZOOKEEPER_CONNECT: argosea-zookeeper:2181
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://argosea-kafka:9092,PLAINTEXT_HOST://localhost:9092
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_HOST:PLAINTEXT
+      KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+    restart: unless-stopped
+
+volumes:
+  argosea-pgdata:
