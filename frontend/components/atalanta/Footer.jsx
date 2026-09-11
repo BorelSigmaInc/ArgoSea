@@ -11,6 +11,7 @@ import Logo from "./Logo";
 gsap.registerPlugin(ScrollTrigger);
 
 const FOOTER_NAV = [
+  { href: "/marine-mis", label: "Marine" },
   { href: "/platform", label: "Platform" },
   { href: "/articles", label: "Learn" },
   { href: "/careers", label: "Careers" },

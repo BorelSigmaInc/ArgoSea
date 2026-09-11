@@ -34,7 +34,11 @@ function MapApi({ apiRef }) {
   return null;
 }
 
-export default function AisLiveMap({ initial }) {
+export default function AisLiveMap({
+  initial,
+  buildPath = buildAisHomePath,
+  homeHref = "/en/ais/home/centerx:13.2/centery:13.8/zoom:3",
+}) {
   const [mapApi, setMapApi] = useState(null);
   const [vessels, setVessels] = useState(() => generateFleet());
   const [tick, setTick] = useState(0);
@@ -129,7 +133,7 @@ export default function AisLiveMap({ initial }) {
   }, [query, vessels]);
 
   const onView = useCallback((view) => {
-    const path = buildAisHomePath({
+    const path = buildPath({
       centerx: view.lon,
       centery: view.lat,
       zoom: view.zoom,
@@ -137,7 +141,7 @@ export default function AisLiveMap({ initial }) {
     if (typeof window !== "undefined" && window.location.pathname !== path) {
       window.history.replaceState(null, "", path);
     }
-  }, []);
+  }, [buildPath]);
 
   const flyTo = useCallback((lat, lon, zoom = 8) => {
     const map = mapApi;
@@ -166,6 +170,7 @@ export default function AisLiveMap({ initial }) {
   return (
     <div className="ais-shell">
       <TopBar
+        homeHref={homeHref}
         query={query}
         onQuery={(q) => {
           setQuery(q);

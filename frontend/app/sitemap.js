@@ -5,6 +5,7 @@ export default function sitemap() {
   const staticRoutes = [
     "",
     "/platform/",
+    "/marine-mis/",
     "/articles/all/1/",
     "/articles/research/1/",
     "/articles/ideas/1/",

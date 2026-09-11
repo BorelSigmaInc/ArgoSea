@@ -19,7 +19,7 @@ const CARDS = [
       </>
     ),
     body: null,
-    cta: { href: "/platform/", label: "Learn More" },
+    cta: { href: "/marine-mis/", label: "Open Marine" },
   },
   {
     title: (

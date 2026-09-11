@@ -4,10 +4,15 @@ import Link from "next/link";
 import { SearchIcon } from "./icons";
 import Logo from "../atalanta/Logo";
 
-export default function TopBar({ query, onQuery, onSearch }) {
+export default function TopBar({
+  query,
+  onQuery,
+  onSearch,
+  homeHref = "/en/ais/home/centerx:13.2/centery:13.8/zoom:3",
+}) {
   return (
     <header className="ais-topbar">
-      <Link href="/en/ais/home/centerx:13.2/centery:13.8/zoom:3" className="ais-brand">
+      <Link href={homeHref} className="ais-brand">
         <span className="ais-brand-logo"><Logo /></span>
         <span className="ais-brand-name">Maersat</span>
         <span className="ais-brand-sub">Live Map</span>
@@ -30,9 +35,10 @@ export default function TopBar({ query, onQuery, onSearch }) {
       </form>
 
       <nav className="ais-nav">
-        <Link href="/en/ais/home/centerx:13.2/centery:13.8/zoom:3" className="active">
+        <Link href={homeHref} className="active">
           Map
         </Link>
+        <Link href="/">Home</Link>
         <Link href="/quantum">Services</Link>
         <a href="#filters">Data</a>
         <a href="#layers">Intelligence</a>
