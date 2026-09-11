@@ -1,0 +1,352 @@
+html, body {
+  margin: 0;
+  height: 100%;
+}
+
+body:has(.ais-shell) {
+  overflow: hidden;
+}
+
+* { box-sizing: border-box; }
+
+.ais-shell {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #d9dde3;
+  color: #222;
+  font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+}
+
+.ais-topbar {
+  height: 56px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 0 16px;
+  background: #fff;
+  border-bottom: 1px solid #d8dee6;
+  z-index: 500;
+}
+
+.ais-brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  color: #0b4f6c;
+  min-width: 170px;
+}
+
+.ais-brand-name {
+  font-weight: 800;
+  font-size: 18px;
+  letter-spacing: -0.03em;
+}
+
+.ais-brand-sub {
+  font-size: 11px;
+  color: #0087b4;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.ais-search {
+  flex: 1;
+  max-width: 520px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #f3f6f9;
+  border: 1px solid #d3dbe3;
+  border-radius: 20px;
+  padding: 0 14px;
+  height: 36px;
+  color: #5b6773;
+}
+
+.ais-search input {
+  border: 0;
+  outline: 0;
+  background: transparent;
+  width: 100%;
+  font-size: 14px;
+  color: #222;
+}
+
+.ais-nav {
+  display: flex;
+  gap: 16px;
+  font-size: 14px;
+}
+
+.ais-nav a {
+  color: #334155;
+  text-decoration: none;
+}
+
+.ais-nav a.active,
+.ais-nav a:hover {
+  color: #0087b4;
+  font-weight: 600;
+}
+
+.ais-top-actions {
+  margin-left: auto;
+  display: flex;
+  gap: 8px;
+}
+
+.ais-ghost, .ais-login, .ais-link {
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  font: inherit;
+}
+
+.ais-ghost {
+  color: #475569;
+  padding: 8px 10px;
+}
+
+.ais-login {
+  background: #0087b4;
+  color: #fff;
+  border-radius: 4px;
+  padding: 8px 14px;
+  font-weight: 600;
+}
+
+.ais-login:disabled {
+  opacity: 0.55;
+  cursor: default;
+}
+
+.ais-map-wrap {
+  flex: 1;
+  position: relative;
+  min-height: 0;
+}
+
+.ais-map {
+  height: 100%;
+  width: 100%;
+  background: #cfd6dd;
+}
+
+.ais-vessel-canvas {
+  pointer-events: none;
+}
+
+.ais-toolbar {
+  position: absolute;
+  right: 12px;
+  top: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  z-index: 400;
+}
+
+.ais-toolbar button {
+  width: 40px;
+  height: 40px;
+  border: 0;
+  background: #fff;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.22);
+  border-radius: 3px;
+  cursor: pointer;
+  color: #334155;
+  display: grid;
+  place-items: center;
+}
+
+.ais-toolbar button.on,
+.ais-toolbar button:hover {
+  color: #0087b4;
+}
+
+.ais-toolbar-gap { height: 8px; }
+
+.ais-toolbar-stats,
+.ais-toolbar-refresh {
+  width: 40px;
+  background: #fff;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.22);
+  border-radius: 3px;
+  text-align: center;
+  font-size: 10px;
+  font-weight: 700;
+  color: #0b4f6c;
+  padding: 6px 2px;
+}
+
+.ais-toolbar-refresh {
+  border: 0;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  height: auto;
+}
+
+.ais-panel {
+  position: absolute;
+  right: 62px;
+  top: 14px;
+  width: 320px;
+  max-height: calc(100% - 28px);
+  overflow: auto;
+  background: #fff;
+  box-shadow: 0 2px 14px rgba(0,0,0,0.2);
+  border-radius: 4px;
+  z-index: 420;
+}
+
+.ais-panel header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 14px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.ais-panel h2 {
+  margin: 0;
+  font-size: 15px;
+}
+
+.ais-panel header button,
+.ais-infowindow header button {
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  color: #64748b;
+}
+
+.ais-panel-body { padding: 12px 14px 16px; }
+
+.ais-field, .ais-panel input[type="range"] { width: 100%; }
+
+.ais-field {
+  height: 36px;
+  border: 1px solid #d3dbe3;
+  border-radius: 4px;
+  padding: 0 10px;
+  margin-bottom: 10px;
+}
+
+.ais-hits { list-style: none; margin: 0; padding: 0; }
+.ais-hits li button {
+  width: 100%;
+  text-align: left;
+  border: 0;
+  background: transparent;
+  padding: 8px 4px;
+  cursor: pointer;
+  border-bottom: 1px solid #f1f5f9;
+}
+.ais-hits b { display: block; font-size: 13px; }
+.ais-hits span, .muted { color: #64748b; font-size: 12px; }
+.small { font-size: 12px; line-height: 1.45; }
+
+.ais-label {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #64748b;
+  margin: 0 0 8px;
+}
+
+.ais-pills { display: flex; gap: 6px; margin-bottom: 12px; }
+.ais-pills button {
+  flex: 1;
+  border: 1px solid #d3dbe3;
+  background: #f8fafc;
+  border-radius: 4px;
+  padding: 7px 6px;
+  cursor: pointer;
+}
+.ais-pills button.on { background: #0087b4; color: #fff; border-color: #0087b4; }
+
+.ais-check {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 8px 0;
+  font-size: 14px;
+}
+
+.ais-swatch {
+  width: 12px;
+  height: 12px;
+  border-radius: 2px;
+  display: inline-block;
+}
+
+.ais-row { display: flex; justify-content: space-between; margin-bottom: 8px; }
+.ais-link { color: #0087b4; font-size: 13px; }
+
+.ais-infowindow {
+  position: absolute;
+  left: 14px;
+  bottom: 18px;
+  width: 360px;
+  background: #fff;
+  border-radius: 4px;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.22);
+  z-index: 430;
+  overflow: hidden;
+}
+
+.ais-infowindow-bar { height: 6px; }
+.ais-infowindow header {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 14px 6px;
+}
+.ais-infowindow h3 { margin: 0; font-size: 16px; }
+.ais-infowindow header p { margin: 4px 0 0; color: #64748b; font-size: 12px; }
+.ais-infowindow dl {
+  margin: 0;
+  padding: 0 14px 10px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px 12px;
+}
+.ais-infowindow dt { font-size: 11px; color: #64748b; }
+.ais-infowindow dd { margin: 2px 0 0; font-size: 13px; }
+.ais-infowindow footer { padding: 0 14px 14px; }
+
+.ais-scale {
+  position: absolute;
+  left: 10px;
+  bottom: 8px;
+  background: rgba(255,255,255,0.85);
+  font-size: 11px;
+  padding: 3px 8px;
+  border-radius: 2px;
+  color: #475569;
+  z-index: 350;
+}
+
+.ais-weather-veil {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    repeating-linear-gradient(115deg, transparent 0 18px, rgba(0,135,180,0.05) 18px 20px);
+  z-index: 300;
+}
+
+.leaflet-control-attribution {
+  font-size: 10px !important;
+}
+
+@media (max-width: 900px) {
+  .ais-nav, .ais-top-actions .ais-ghost { display: none; }
+  .ais-panel { width: min(320px, calc(100% - 76px)); }
+  .ais-infowindow { width: calc(100% - 28px); }
+}

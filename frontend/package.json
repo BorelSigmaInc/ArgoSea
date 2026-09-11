@@ -8,8 +8,12 @@
     "start": "next start"
   },
   "dependencies": {
+    "@mux/mux-player-react": "^3.13.3",
+    "hls.js": "^1.7.2",
+    "leaflet": "^1.9.4",
     "next": "^16.3.4",
     "react": "^19.3.0",
-    "react-dom": "^19.3.0"
+    "react-dom": "^19.3.0",
+    "react-leaflet": "^5.0.0"
   }
 }
