@@ -1,30 +1,46 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useLayoutEffect, useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-export default function Reveal({ children, className = "" }) {
+gsap.registerPlugin(ScrollTrigger);
+
+export default function Reveal({ children, className = "", mode = "section" }) {
   const ref = useRef(null);
 
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-    const io = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("is-in");
-            io.unobserve(entry.target);
-          }
+  useLayoutEffect(() => {
+    const root = ref.current;
+    if (!root) return undefined;
+
+    const ctx = gsap.context(() => {
+      if (mode === "rich") {
+        const items = root.querySelectorAll(".at-copy-reveal > p");
+        gsap.set(items, { opacity: 0 });
+        gsap.to(items, {
+          opacity: 1,
+          duration: 1,
+          ease: "power2.out",
+          stagger: { each: 1 },
+          scrollTrigger: { trigger: root, start: "top 75%" },
         });
-      },
-      { rootMargin: "0px 0px -8% 0px", threshold: 0.12 },
-    );
-    io.observe(el);
-    return () => io.disconnect();
-  }, []);
+        return;
+      }
+
+      gsap.set(root, { opacity: 0 });
+      gsap.to(root, {
+        opacity: 1,
+        duration: 1,
+        ease: "power2.out",
+        scrollTrigger: { trigger: root, start: "top 80%" },
+      });
+    }, root);
+
+    return () => ctx.revert();
+  }, [mode]);
 
   return (
-    <div ref={ref} className={`at-reveal ${className}`.trim()}>
+    <div ref={ref} className={`at-reveal-gsap ${className}`.trim()}>
       {children}
     </div>
   );

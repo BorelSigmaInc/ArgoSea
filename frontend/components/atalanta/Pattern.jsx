@@ -11,12 +11,15 @@ const CELLS = [
 
 export default function Pattern() {
   return (
-    <div className="at-pattern" aria-hidden="true">
+    <div className="at-pattern" aria-hidden="true" data-page-transition-pattern-modular="true">
       <div className="at-pattern-grid" style={{ gridTemplateColumns: COLS, gridTemplateRows: ROWS }}>
         {CELLS.map(([row, col]) => (
           <div
             key={`${row}-${col}`}
             className="at-pattern-cell"
+            data-pattern-cell="true"
+            data-row={row}
+            data-col={col}
             style={{ gridRowStart: row + 1, gridColumnStart: col + 1 }}
           />
         ))}

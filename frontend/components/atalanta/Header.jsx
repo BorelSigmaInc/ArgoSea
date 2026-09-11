@@ -2,7 +2,8 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
+import gsap from "gsap";
 import ContactForm from "./ContactForm";
 import Logo from "./Logo";
 import { UPDATE } from "../../lib/atalanta/content";
@@ -14,15 +15,29 @@ const NAV = [
   { href: "/careers", label: "Careers", match: (p) => p.startsWith("/careers") },
 ];
 
-function NavMark({ active }) {
-  if (active) {
+const MOBILE_NAV = [
+  { href: "/argo", label: "Argo" },
+  { href: "/articles", label: "Learn" },
+  { href: "/careers", label: "Careers" },
+  { href: "/contact", label: "Contact Us" },
+];
+
+function NavMark({ active, mode = "nav" }) {
+  if (mode === "modal") {
     return (
-      <span className="at-icon at-icon-sq" aria-hidden="true">
+      <span className={`at-modal-icon${active ? " is-on" : ""}`} aria-hidden="true">
         <svg viewBox="0 0 8 8"><rect width="8" height="8" fill="currentColor" /></svg>
       </span>
     );
   }
-  return <span className="at-icon" aria-hidden="true">/</span>;
+  return (
+    <span className="at-nav-icon" aria-hidden="true">
+      <span className={`at-nav-icon-idle${active ? " is-hide" : ""}`}>/</span>
+      <span className={`at-nav-icon-active${active ? " is-show" : ""}`}>
+        <svg viewBox="0 0 8 8" fill="none"><rect width="8" height="8" fill="currentColor" /></svg>
+      </span>
+    </span>
+  );
 }
 
 export default function Header() {
@@ -30,6 +45,36 @@ export default function Header() {
   const path = raw.length > 1 ? raw.replace(/\/$/, "") : "/";
   const [open, setOpen] = useState(null);
   const [mobile, setMobile] = useState(false);
+  const headerRef = useRef(null);
+  const updatesReveal = useRef(null);
+  const contactReveal = useRef(null);
+  const mobileReveal = useRef(null);
+  const updatesBtn = useRef(null);
+  const contactBtn = useRef(null);
+  const updatesPanel = useRef(null);
+  const contactPanel = useRef(null);
+  const mobileBtn = useRef(null);
+  const animated = useRef(false);
+
+  useLayoutEffect(() => {
+    if (animated.current || !headerRef.current) return undefined;
+    animated.current = true;
+    const logo = headerRef.current.querySelector("[data-header-logo]");
+    const nav = Array.from(headerRef.current.querySelectorAll("[data-header-nav-item]"));
+    const modals = Array.from(headerRef.current.querySelectorAll("[data-header-modal-item]"));
+    const burger = headerRef.current.querySelector("[data-header-mobile-menu]");
+    gsap.set([logo, ...nav, ...modals, burger].filter(Boolean), { opacity: 0, x: -10 });
+    const tl = gsap.timeline({
+      onComplete: () => {
+        if (headerRef.current) headerRef.current.dataset.animated = "true";
+      },
+    });
+    if (logo) tl.to(logo, { opacity: 1, x: 0, duration: 0.6, ease: "power2.out" });
+    if (nav.length) tl.to(nav, { opacity: 1, x: 0, duration: 0.6, ease: "power2.out", stagger: { amount: 0.1 } }, "<0.1");
+    if (burger && window.innerWidth <= 800) tl.to(burger, { opacity: 1, x: 0, duration: 0.6, ease: "power2.out" }, "<0.1");
+    if (modals.length) tl.to(modals, { opacity: 1, x: 0, duration: 0.6, ease: "power2.out", stagger: { amount: 0.1 } }, "<0.1");
+    return () => tl.kill();
+  }, []);
 
   useEffect(() => {
     setOpen(null);
@@ -47,81 +92,190 @@ export default function Header() {
     return () => window.removeEventListener("keydown", onKey);
   }, []);
 
+  useEffect(() => {
+    const onDoc = (e) => {
+      const t = e.target;
+      if (open === "updates") {
+        if (!updatesPanel.current?.contains(t) && !updatesBtn.current?.contains(t)) setOpen(null);
+      }
+      if (open === "contact") {
+        if (!contactPanel.current?.contains(t) && !contactBtn.current?.contains(t)) setOpen(null);
+      }
+      if (mobile) {
+        const wrap = document.querySelector("[data-mobile-menu-wrapper]");
+        if (!wrap?.contains(t) && !mobileBtn.current?.contains(t)) setMobile(false);
+      }
+    };
+    document.addEventListener("click", onDoc);
+    return () => document.removeEventListener("click", onDoc);
+  }, [open, mobile]);
+
+  useEffect(() => {
+    const el = updatesReveal.current;
+    if (!el) return;
+    const tl = gsap.timeline();
+    if (open === "updates") tl.to(el, { height: "auto", duration: 1, ease: "expo.out" });
+    else tl.to(el, { height: 0, duration: 0.6, ease: "power2.out" });
+    return () => tl.kill();
+  }, [open]);
+
+  useEffect(() => {
+    const el = contactReveal.current;
+    if (!el) return;
+    const tl = gsap.timeline();
+    if (open === "contact") tl.to(el, { height: "auto", duration: 1, ease: "expo.out" });
+    else tl.to(el, { height: 0, duration: 0.6, ease: "power2.out" });
+    return () => tl.kill();
+  }, [open]);
+
+  useEffect(() => {
+    const el = mobileReveal.current;
+    if (!el) return;
+    const items = el.querySelectorAll("[data-mobile-nav-item]");
+    const wordmark = el.querySelector("[data-mobile-wordmark]");
+    const tl = gsap.timeline();
+    if (mobile) {
+      tl.to(el, { height: "auto", duration: 1, ease: "expo.out" });
+      tl.to(items, { y: 0, opacity: 1, duration: 0.6, ease: "power2.out", stagger: { amount: 0.1 } }, "<0.1");
+      if (wordmark) tl.to(wordmark, { opacity: 1, duration: 1.6, ease: "power2.out" }, "<");
+    } else {
+      tl.to(items, { y: -5, opacity: 0, duration: 0.3, ease: "power2.out", stagger: { amount: -0.1 } });
+      tl.to(el, { height: 0, duration: 0.6, ease: "power2.out" }, "<");
+      if (wordmark) tl.to(wordmark, { opacity: 0, duration: 0.1, ease: "power2.out" }, "<");
+    }
+    return () => tl.kill();
+  }, [mobile]);
+
+  const updatesState = open === "updates" ? "active" : open ? "inactive" : "idle";
+  const contactState = open === "contact" ? "active" : open ? "inactive" : "idle";
+
   return (
-    <header className="at-header">
-      <Link href="/" className="at-logo" aria-label="Home">
-        <span className="at-logo-sizer"><Logo /></span>
-      </Link>
+    <>
+      <header className="at-header" ref={headerRef}>
+        <Link href="/" className="at-logo" aria-label="Home" data-header-logo>
+          <span className="at-logo-sizer"><Logo /></span>
+        </Link>
 
-      <nav className="at-nav" aria-label="Primary">
-        {NAV.map((item) => {
-          const active = item.match(path);
-          return (
-            <Link key={item.href} href={item.href} className={active ? "active" : ""}>
-              <NavMark active={active} />
-              {item.label}
-            </Link>
-          );
-        })}
-      </nav>
+        <nav className="at-nav" aria-label="Primary">
+          {NAV.map((item) => {
+            const active = item.match(path);
+            return (
+              <Link
+                key={item.href}
+                href={item.href}
+                data-header-nav-item
+                data-href={item.href}
+                data-state={active ? "active" : "idle"}
+                className={active ? "active" : ""}
+              >
+                <NavMark active={active} />
+                {item.label}
+              </Link>
+            );
+          })}
+        </nav>
 
-      <button
-        type="button"
-        className="at-burger"
-        onClick={() => setMobile((v) => !v)}
-        aria-label={mobile ? "Close" : "Menu"}
-      >
-        <NavMark active={mobile} />
-        {mobile ? "Close" : "Menu"}
-      </button>
+        <div className="at-mobile-slot" data-header-mobile-menu>
+          <button
+            ref={mobileBtn}
+            type="button"
+            className="at-burger"
+            data-state={mobile ? "active" : "idle"}
+            data-mobile-menu-button
+            onClick={() => {
+              setOpen(null);
+              setMobile((v) => !v);
+            }}
+            aria-label={mobile ? "Close" : "Menu"}
+          >
+            <NavMark active={mobile} mode="modal" />
+            {mobile ? "Close" : "Menu"}
+          </button>
+        </div>
 
-      <div className="at-modals">
-        <button
-          type="button"
-          className={`at-modal-btn ${open === "updates" ? "on" : ""}`}
-          onClick={() => setOpen(open === "updates" ? null : "updates")}
-        >
-          <NavMark active />
-          Updates <span className="at-badge">1 New</span>
-        </button>
-        <button
-          type="button"
-          className={`at-modal-btn ${open === "contact" ? "on" : ""}`}
-          onClick={() => setOpen(open === "contact" ? null : "contact")}
-        >
-          <NavMark active />
-          Contact Us
-        </button>
-      </div>
-
-      {open === "updates" && (
-        <div className="at-dropdown" role="dialog" aria-label="Updates">
-          <Link href={UPDATE.href} className="at-update" onClick={() => setOpen(null)}>
-            <img src={UPDATE.image} alt="" />
-            <div>
-              <h3>{UPDATE.title}</h3>
-              <p>Read the Announcement</p>
+        <div className="at-modals">
+          <div className="at-modal-slot" data-header-modal-item>
+            <button
+              ref={updatesBtn}
+              type="button"
+              className="at-modal-btn"
+              data-state={updatesState}
+              onClick={() => {
+                setMobile(false);
+                setOpen(open === "updates" ? null : "updates");
+              }}
+            >
+              <NavMark active={open === "updates"} mode="modal" />
+              Updates <span className="at-badge">1 New</span>
+            </button>
+            <div className="at-modal-positioner updates">
+              <div className="at-modal-revealer" ref={updatesReveal} style={{ height: 0, overflow: "hidden" }}>
+                <div className="at-dropdown-panel" ref={updatesPanel} data-state={open === "updates" ? "open" : "closed"}>
+                  <Link href={UPDATE.href} className="at-update" onClick={() => setOpen(null)}>
+                    <img src={UPDATE.image} alt="" />
+                    <div>
+                      <h3>{UPDATE.title}</h3>
+                      <p className="at-update-cta">Read the Announcement</p>
+                    </div>
+                  </Link>
+                </div>
+              </div>
             </div>
-          </Link>
-        </div>
-      )}
+          </div>
 
-      {open === "contact" && (
-        <div className="at-dropdown" role="dialog" aria-label="Contact">
-          <ContactForm compact />
-        </div>
-      )}
+          <div className="at-modal-divider" aria-hidden="true" />
 
-      {mobile && (
-        <div className="at-mobile-panel">
-          {NAV.slice(1).map((item) => (
-            <Link key={item.href} href={item.href} className="at-mobile-link">
-              / {item.label}
-            </Link>
-          ))}
-          <Link href="/contact" className="at-mobile-link">/ Contact Us</Link>
+          <div className="at-modal-slot at-contact-modal" data-header-modal-item>
+            <button
+              ref={contactBtn}
+              type="button"
+              className="at-modal-btn"
+              data-state={contactState}
+              onClick={() => {
+                setMobile(false);
+                setOpen(open === "contact" ? null : "contact");
+              }}
+            >
+              <NavMark active={open === "contact"} mode="modal" />
+              Contact Us
+            </button>
+            <div className="at-modal-positioner contact">
+              <div className="at-modal-revealer" ref={contactReveal} style={{ height: 0, overflow: "hidden" }}>
+                <div className="at-dropdown-panel" ref={contactPanel} data-state={open === "contact" ? "open" : "closed"}>
+                  <ContactForm compact />
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-      )}
-    </header>
+      </header>
+
+      <div
+        className="at-mobile-wrapper"
+        data-mobile-menu-wrapper
+        data-state={mobile ? "open" : "closed"}
+      >
+        <div className="at-mobile-revealer" ref={mobileReveal} style={{ height: 0, overflow: "hidden" }}>
+          <div className="at-mobile-panel">
+            <nav data-mobile-menu-nav>
+              {MOBILE_NAV.map((item) => (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className="at-mobile-link"
+                  data-mobile-nav-item
+                  onClick={() => setMobile(false)}
+                >
+                  <span className="at-mobile-slash">/</span> {item.label}
+                </Link>
+              ))}
+            </nav>
+            <div className="at-mobile-wordmark" data-mobile-wordmark aria-hidden="true">
+              <img src="/media/atalanta-wordmark.svg" alt="" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </>
   );
 }
