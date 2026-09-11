@@ -16,8 +16,11 @@ const body = Newsreader({
 });
 
 export const metadata = {
-  title: "Home | Atalanta",
+  title: "MarineMIS",
   description: "Provably correct decision-making for the world's most important missions.",
+  icons: {
+    icon: "/media/marine-logo.svg",
+  },
 };
 
 export default function RootLayout({ children }) {

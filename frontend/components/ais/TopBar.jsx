@@ -1,14 +1,15 @@
 "use client";
 
 import Link from "next/link";
-import { SearchIcon, ShipMark } from "./icons";
+import { SearchIcon } from "./icons";
+import Logo from "../atalanta/Logo";
 
 export default function TopBar({ query, onQuery, onSearch }) {
   return (
     <header className="ais-topbar">
       <Link href="/en/ais/home/centerx:13.2/centery:13.8/zoom:3" className="ais-brand">
-        <ShipMark />
-        <span className="ais-brand-name">ArgoSea</span>
+        <span className="ais-brand-logo"><Logo /></span>
+        <span className="ais-brand-name">MarineMIS</span>
         <span className="ais-brand-sub">Live Map</span>
       </Link>
 
