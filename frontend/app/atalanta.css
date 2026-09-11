@@ -163,8 +163,8 @@
 
 .at-logo-sizer {
   display: block;
-  width: 28px;
-  height: 28px;
+  width: 31px;
+  height: 31px;
 }
 
 .at-logo-sizer svg,
@@ -198,8 +198,8 @@
 }
 
 .at-logo-splash-mark {
-  width: min(42vw, 168px);
-  height: min(42vw, 168px);
+  width: min(46.2vw, 185px);
+  height: min(46.2vw, 185px);
   animation: atLogoPulse 1.6s var(--at-ease) both;
 }
 
