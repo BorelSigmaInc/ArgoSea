@@ -8,7 +8,7 @@ export default function ContactForm({ compact = false }) {
   if (sent) {
     return (
       <div className="at-success">
-        <p>Inquiry received!</p>
+        <p><span className="at-mark">Inquiry received!</span></p>
         <p>We’ll be in touch shortly.</p>
       </div>
     );
@@ -16,17 +16,17 @@ export default function ContactForm({ compact = false }) {
 
   return (
     <form
-      className="at-form"
+      className={`at-form ${compact ? "compact" : "default"}`}
       onSubmit={(e) => {
         e.preventDefault();
         setSent(true);
       }}
     >
-      <input name="name" required placeholder="Full Name" autoComplete="name" />
-      <input name="email" type="email" required placeholder="Email Address" autoComplete="email" />
-      <input name="company" placeholder="Company Name" autoComplete="organization" />
-      <textarea name="message" required placeholder="Message" />
-      <button className="at-submit" type="submit">{compact ? "Submit" : "Submit"}</button>
+      <input name="name" required placeholder="Full Name" autoComplete="name" aria-label="Full Name" />
+      <input name="email" type="email" required placeholder="Email Address" autoComplete="email" aria-label="Email Address" />
+      <input name="company" required placeholder="Company Name" autoComplete="organization" aria-label="Company Name" />
+      <textarea name="message" required placeholder="Enter message..." aria-label="Message" />
+      <button className="at-submit" type="submit">Submit</button>
     </form>
   );
 }

@@ -5,13 +5,24 @@ import { usePathname } from "next/navigation";
 
 export default function PageMotion() {
   const path = usePathname();
-  const [flash, setFlash] = useState(true);
+  const [on, setOn] = useState(true);
 
   useEffect(() => {
-    setFlash(true);
-    const t = window.setTimeout(() => setFlash(false), 700);
-    return () => window.clearTimeout(t);
+    setOn(true);
+    document.documentElement.classList.add("at-transitioning");
+    const hide = window.setTimeout(() => {
+      setOn(false);
+      document.documentElement.classList.remove("at-transitioning");
+    }, 780);
+    return () => {
+      window.clearTimeout(hide);
+      document.documentElement.classList.remove("at-transitioning");
+    };
   }, [path]);
 
-  return <div className={`at-page-flash ${flash ? "is-on" : ""}`} aria-hidden="true" />;
+  return (
+    <>
+      <div className={`at-page-flash ${on ? "is-on" : ""}`} aria-hidden="true" />
+    </>
+  );
 }
