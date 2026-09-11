@@ -2,7 +2,7 @@
 "use client";
 import { useEffect, useState } from "react";
 
-const API = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
+const API = "/api/proxy";
 
 export default function Home() {
   const [health, setHealth] = useState(null);
