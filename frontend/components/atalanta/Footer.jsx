@@ -102,8 +102,8 @@ export default function Footer() {
                 </a>
               ))}
             </div>
-            <a className="at-link at-credit" href={`mailto:${SITE.email}`}>
-              {SITE.email}
+            <a className="at-link at-credit" href={SITE.domain} target="_blank" rel="noreferrer">
+              Site Credit
             </a>
           </div>
         </div>
@@ -131,9 +131,12 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* Desktop wordmark — same slot/padding/color as original path SVG */}
+      {/* Desktop wordmark — logo M + rest of name, full-bleed like source */}
       <div className="at-wordmark" aria-hidden="true">
-        <p className="at-wordmark-text">Maersat</p>
+        <div className="at-wordmark-lockup">
+          <span className="at-wordmark-m"><Logo /></span>
+          <span className="at-wordmark-rest">aersat</span>
+        </div>
       </div>
 
       {/* Mobile wordmark — monogram only (original uses letter mark) */}

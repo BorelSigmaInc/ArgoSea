@@ -54,26 +54,37 @@ export default function Header() {
   const updatesPanel = useRef(null);
   const contactPanel = useRef(null);
   const mobileBtn = useRef(null);
-  const animated = useRef(false);
 
   useLayoutEffect(() => {
-    if (animated.current || !headerRef.current) return undefined;
-    animated.current = true;
-    const logo = headerRef.current.querySelector("[data-header-logo]");
-    const nav = Array.from(headerRef.current.querySelectorAll("[data-header-nav-item]"));
-    const modals = Array.from(headerRef.current.querySelectorAll("[data-header-modal-item]"));
-    const burger = headerRef.current.querySelector("[data-header-mobile-menu]");
-    gsap.set([logo, ...nav, ...modals, burger].filter(Boolean), { opacity: 0, x: -10 });
-    const tl = gsap.timeline({
-      onComplete: () => {
-        if (headerRef.current) headerRef.current.dataset.animated = "true";
-      },
-    });
-    if (logo) tl.to(logo, { opacity: 1, x: 0, duration: 0.6, ease: "power2.out" });
-    if (nav.length) tl.to(nav, { opacity: 1, x: 0, duration: 0.6, ease: "power2.out", stagger: { amount: 0.1 } }, "<0.1");
-    if (burger && window.innerWidth <= 800) tl.to(burger, { opacity: 1, x: 0, duration: 0.6, ease: "power2.out" }, "<0.1");
-    if (modals.length) tl.to(modals, { opacity: 1, x: 0, duration: 0.6, ease: "power2.out", stagger: { amount: 0.1 } }, "<0.1");
-    return () => tl.kill();
+    const header = headerRef.current;
+    if (!header) return undefined;
+
+    const ctx = gsap.context(() => {
+      const logo = header.querySelector("[data-header-logo]");
+      const nav = Array.from(header.querySelectorAll("[data-header-nav-item]"));
+      const modals = Array.from(header.querySelectorAll("[data-header-modal-item]"));
+      const burger = header.querySelector("[data-header-mobile-menu]");
+      const targets = [logo, ...nav, ...modals, burger].filter(Boolean);
+      gsap.set(targets, { opacity: 0, x: -10 });
+      const tl = gsap.timeline({
+        onComplete: () => {
+          header.dataset.animated = "true";
+        },
+      });
+      if (logo) tl.to(logo, { opacity: 1, x: 0, duration: 0.6, ease: "power2.out" });
+      if (nav.length) tl.to(nav, { opacity: 1, x: 0, duration: 0.6, ease: "power2.out", stagger: { amount: 0.1 } }, "<0.1");
+      if (burger && window.innerWidth <= 800) {
+        tl.to(burger, { opacity: 1, x: 0, duration: 0.6, ease: "power2.out" }, "<0.1");
+      }
+      if (modals.length) {
+        tl.to(modals, { opacity: 1, x: 0, duration: 0.6, ease: "power2.out", stagger: { amount: 0.1 } }, "<0.1");
+      }
+    }, header);
+
+    return () => {
+      delete header.dataset.animated;
+      ctx.revert();
+    };
   }, []);
 
   useEffect(() => {
@@ -271,7 +282,7 @@ export default function Header() {
               ))}
             </nav>
             <div className="at-mobile-wordmark" data-mobile-wordmark aria-hidden="true">
-              <img src="/media/maersat-wordmark.svg" alt="" />
+              <span className="at-hero-wordmark-text">Maersat</span>
             </div>
           </div>
         </div>

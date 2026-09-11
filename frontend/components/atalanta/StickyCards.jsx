@@ -15,7 +15,7 @@ const CARDS = [
       <>
         <MarkWhite>Maersat</MarkWhite>
         <br />
-        for Marine System
+        for Marine.
       </>
     ),
     body: null,
@@ -48,7 +48,7 @@ const CARDS = [
       <>
         <MarkWhite>Maersat</MarkWhite>
         <br />
-        for Defense Systems.
+        for Defense.
       </>
     ),
     body: "Maersat helps defense organizations prove the security of complex systems with agility. It verifies that data remains isolated across security boundaries, ensures critical constraints are enforced, and identifies unintended system interactions, so that mission systems operate securely as requirements and conditions change.",

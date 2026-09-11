@@ -1,4 +1,4 @@
-/** Maersat M monogram — 23×25 modular brand mark (header / favicon / mobile). */
+/** Maersat M mark — history 01b (ffaa530 favicon), shared by header + icons. */
 export default function Logo({ className = "" }) {
   return (
     <svg
