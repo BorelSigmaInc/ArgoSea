@@ -8,15 +8,21 @@ export const SITE = {
     "Maersat is a mathematical AI and maritime intelligence company. Search Maersat for satellite-aware fleets, software understanding, and mission-critical verification across energy, space, and defense.",
   keywords: [
     "Maersat",
+    "MAERSAT",
     "Maersat Technologies",
+    "Maersat Technologies Inc",
     "Maersat platform",
+    "Maersat maritime",
+    "Maersat AIS",
+    "info@maersat.com",
+    "maersat.com",
     "maritime intelligence",
     "satellite AIS",
     "software understanding",
     "formal methods",
     "mission-critical AI",
     "fleet monitoring",
-    "info@maersat.com",
+    "marine systems",
   ],
 };
 

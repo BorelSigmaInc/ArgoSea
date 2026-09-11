@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 23 25" fill="none" role="img" aria-label="Maersat">
+  <!--
+    Maersat M monogram
+    Slot-matched 23×25 brand mark: modular, angular, filled currentColor.
+    Original geometry  not derived from third-party path data.
+  -->
+  <path
+    fill="currentColor"
+    d="M0 0H5.4V6.2H3.2V1.1L11.5 15.2L19.8 1.1V6.2H17.6V0H23V25H17.6V19.2H19.8V15.2H17.6L13.4 20.6L11.5 17.8L9.6 20.6L5.4 15.2H3.2V19.2H5.4V25H0V0Z"
+  />
+  <path fill="currentColor" d="M5.4 6.2H8.2V12.2H5.4V6.2Z" />
+  <path fill="currentColor" d="M3.2 12.2H5.4V15.2H3.2V12.2Z" />
+  <path fill="currentColor" d="M0 19.2H3.2V25H0V19.2Z" />
+  <path fill="currentColor" d="M14.8 6.2H17.6V12.2H14.8V6.2Z" />
+  <path fill="currentColor" d="M17.6 12.2H19.8V15.2H17.6V12.2Z" />
+  <path fill="currentColor" d="M19.8 19.2H23V25H19.8V19.2Z" />
+</svg>

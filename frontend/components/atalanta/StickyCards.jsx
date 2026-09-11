@@ -15,7 +15,7 @@ const CARDS = [
       <>
         <MarkWhite>Maersat</MarkWhite>
         <br />
-        The first maritime software understanding platform.
+        for Marine System
       </>
     ),
     body: null,

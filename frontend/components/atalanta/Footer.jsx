@@ -6,6 +6,7 @@ import { useLayoutEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { SITE } from "../../lib/atalanta/content";
+import Logo from "./Logo";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -24,6 +25,7 @@ const SOCIALS = [
   { href: "https://www.youtube.com/@Maersat", label: "YouTube" },
 ];
 
+/** Matches original navigation-button icon: idle `/`, active square. */
 function NavIcon({ active }) {
   return (
     <span className="at-nav-icon" aria-hidden="true">
@@ -45,15 +47,18 @@ export default function Footer() {
     if (!root) return undefined;
     const ctx = gsap.context(() => {
       const rects = root.querySelectorAll(".at-pattern-footer rect");
-      if (rects.length) {
-        gsap.from(rects, {
-          opacity: 0,
-          duration: 1.5,
-          ease: "power2.out",
-          stagger: 0.15,
-          scrollTrigger: { trigger: ".at-pattern-footer", start: "top 75%", scrub: true },
-        });
-      }
+      if (!rects.length) return;
+      gsap.from(rects, {
+        opacity: 0,
+        duration: 1.5,
+        ease: "power2.out",
+        stagger: 0.15,
+        scrollTrigger: {
+          trigger: root.querySelector(".at-pattern-footer"),
+          start: "top 75%",
+          scrub: true,
+        },
+      });
     }, root);
     return () => ctx.revert();
   }, []);
@@ -62,7 +67,7 @@ export default function Footer() {
     <footer className="at-footer" ref={footerRef}>
       <div className="at-footer-pattern" aria-hidden="true">
         <div className="at-pattern-footer">
-          <svg viewBox="0 0 1728 1002" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <svg viewBox="0 0 1728 1002" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMax meet">
             <g className="animate-wrapper">
               <g opacity="0.05">
                 <rect width="285" height="148" transform="matrix(-1 0 0 1 854 674)" fill="white" />
@@ -84,7 +89,7 @@ export default function Footer() {
       <div className="at-section-layout at-footer-layout">
         <div className="at-sidebar">
           <div className="at-footer-meta">
-            <p className="at-copyr">
+            <p className="at-copyr text-link">
               COPYRIGHT 2026
               <br />
               MAERSAT TECHNOLOGIES INC.
@@ -111,8 +116,10 @@ export default function Footer() {
               return (
                 <Link
                   key={item.href}
-                  className="at-link"
+                  className="at-link light"
                   href={item.href}
+                  data-footer-nav-item
+                  data-href={item.href}
                   data-state={active ? "active" : "idle"}
                 >
                   <NavIcon active={active} />
@@ -124,11 +131,14 @@ export default function Footer() {
         </div>
       </div>
 
+      {/* Desktop wordmark — same slot/padding/color as original path SVG */}
       <div className="at-wordmark" aria-hidden="true">
-        <img src="/media/maersat-wordmark.svg" alt="" />
+        <p className="at-wordmark-text">Maersat</p>
       </div>
+
+      {/* Mobile wordmark — monogram only (original uses letter mark) */}
       <div className="at-wordmark mobile" aria-hidden="true">
-        <img src="/media/marine-logo.svg" alt="" />
+        <Logo />
       </div>
     </footer>
   );

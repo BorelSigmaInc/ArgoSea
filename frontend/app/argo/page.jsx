@@ -1,5 +1,6 @@
 import { redirect } from "next/navigation";
 
-export default function ArgoRedirect() {
+/** Legacy /argo path → Maersat platform. */
+export default function PlatformRedirect() {
   redirect("/platform/");
 }

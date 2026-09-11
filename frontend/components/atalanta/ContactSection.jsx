@@ -1,5 +1,6 @@
 import ContactForm from "./ContactForm";
 import MarkWhite from "./MarkWhite";
+import { SITE } from "../../lib/atalanta/content";
 
 export default function ContactSection() {
   return (
@@ -14,6 +15,9 @@ export default function ContactSection() {
                 <br />
                 We’d love to hear from you.
               </h2>
+              <p className="at-contact-email">
+                <a className="at-cta" href={`mailto:${SITE.email}`}>{SITE.email}</a>
+              </p>
             </div>
             <div className="at-contact-form-wrap">
               <ContactForm />

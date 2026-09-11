@@ -14,7 +14,7 @@ const PREFIXES = {
 const NAMES = [
   "OSCAR", "GIVEN", "ALGECIRAS", "SHANGHAI", "ROTTERDAM", "HORIZON", "PIONEER",
   "ATLANTIC", "PACIFIC", "VOYAGER", "TITAN", "ORION", "AURORA", "NEPTUNE",
-  "TRIDENT", "MERIDIAN", "EQUINOX", "POLARIS", "CALYPSO", "ODYSSEY", "ARGO",
+  "TRIDENT", "MERIDIAN", "EQUINOX", "POLARIS", "CALYPSO", "ODYSSEY", "MAERSAT",
   "SIRIUS", "ANDA", "FORTUNE", "HARMONY", "UNITY", "SPIRIT", "CROWN",
 ];
 
@@ -188,7 +188,7 @@ export function jitterFleet(vessels, seedOffset = 1) {
 export function enrichApiFleet(apiVessels = []) {
   return apiVessels.map((v, i) => ({
     id: `api-${v.mmsi ?? i}`,
-    name: v.name || `ARGO ${v.mmsi ?? i}`,
+    name: v.name || `MAERSAT ${v.mmsi ?? i}`,
     mmsi: v.mmsi,
     imo: v.imo || null,
     type: v.type || "unspecified",

@@ -65,29 +65,45 @@ export const metadata = {
   },
 };
 
-const jsonLd = {
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  name: SITE.name,
-  legalName: SITE.legalName,
-  url: SITE.domain,
-  logo: `${SITE.domain}/media/marine-logo.svg`,
-  email: SITE.email,
-  description: SITE.description,
-  sameAs: [
-    "https://www.linkedin.com/company/maersat",
-    "https://x.com/maersat",
-    "https://www.youtube.com/@Maersat",
-  ],
-  contactPoint: [
-    {
-      "@type": "ContactPoint",
-      email: SITE.email,
-      contactType: "customer support",
-      url: `${SITE.domain}/contact/`,
+const jsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: SITE.name,
+    alternateName: ["MAERSAT", "Maersat Technologies"],
+    legalName: SITE.legalName,
+    url: SITE.domain,
+    logo: `${SITE.domain}/media/marine-logo.svg`,
+    email: SITE.email,
+    description: SITE.description,
+    sameAs: [
+      "https://www.linkedin.com/company/maersat",
+      "https://x.com/maersat",
+      "https://www.youtube.com/@Maersat",
+    ],
+    contactPoint: [
+      {
+        "@type": "ContactPoint",
+        email: SITE.email,
+        contactType: "customer support",
+        url: `${SITE.domain}/contact/`,
+      },
+    ],
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: SITE.name,
+    url: SITE.domain,
+    description: SITE.description,
+    publisher: { "@type": "Organization", name: SITE.legalName },
+    potentialAction: {
+      "@type": "SearchAction",
+      target: `${SITE.domain}/articles/all/1/?q={search_term_string}`,
+      "query-input": "required name=search_term_string",
     },
-  ],
-};
+  },
+];
 
 export default function RootLayout({ children }) {
   return (

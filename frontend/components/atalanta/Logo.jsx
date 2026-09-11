@@ -1,59 +1,23 @@
+/** Maersat M monogram — 23×25 modular brand mark (header / favicon / mobile). */
 export default function Logo({ className = "" }) {
   return (
     <svg
       className={`at-logo-mark ${className}`.trim()}
-      viewBox="0 0 100 100"
+      viewBox="0 0 23 25"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       aria-hidden="true"
     >
-      <g stroke="currentColor" strokeLinecap="butt" strokeLinejoin="miter">
-        <line x1="14.00" y1="38.00" x2="14.00" y2="78.00" strokeWidth="1.55" />
-        <line x1="16.40" y1="36.93" x2="16.40" y2="76.93" strokeWidth="1.25" />
-        <line x1="18.80" y1="35.87" x2="18.80" y2="75.87" strokeWidth="1.25" />
-        <line x1="21.20" y1="34.80" x2="21.20" y2="74.80" strokeWidth="1.25" />
-        <line x1="23.60" y1="33.73" x2="23.60" y2="73.73" strokeWidth="1.25" />
-        <line x1="26.00" y1="32.67" x2="26.00" y2="72.67" strokeWidth="1.25" />
-        <line x1="28.40" y1="31.60" x2="28.40" y2="71.60" strokeWidth="1.25" />
-        <line x1="30.80" y1="30.53" x2="30.80" y2="70.53" strokeWidth="1.25" />
-        <line x1="33.20" y1="29.47" x2="33.20" y2="69.47" strokeWidth="1.25" />
-        <line x1="35.60" y1="28.40" x2="35.60" y2="68.40" strokeWidth="1.25" />
-        <line x1="38.00" y1="27.33" x2="38.00" y2="67.33" strokeWidth="1.25" />
-        <line x1="40.40" y1="26.27" x2="40.40" y2="66.27" strokeWidth="1.25" />
-        <line x1="42.80" y1="25.20" x2="42.80" y2="65.20" strokeWidth="1.25" />
-        <line x1="45.20" y1="24.13" x2="45.20" y2="64.13" strokeWidth="1.25" />
-        <line x1="47.60" y1="23.07" x2="47.60" y2="63.07" strokeWidth="1.25" />
-        <line x1="50.00" y1="22.00" x2="50.00" y2="62.00" strokeWidth="1.55" />
-        <line x1="86.00" y1="38.00" x2="86.00" y2="78.00" strokeWidth="1.55" />
-        <line x1="83.60" y1="36.93" x2="83.60" y2="76.93" strokeWidth="1.25" />
-        <line x1="81.20" y1="35.87" x2="81.20" y2="75.87" strokeWidth="1.25" />
-        <line x1="78.80" y1="34.80" x2="78.80" y2="74.80" strokeWidth="1.25" />
-        <line x1="76.40" y1="33.73" x2="76.40" y2="73.73" strokeWidth="1.25" />
-        <line x1="74.00" y1="32.67" x2="74.00" y2="72.67" strokeWidth="1.25" />
-        <line x1="71.60" y1="31.60" x2="71.60" y2="71.60" strokeWidth="1.25" />
-        <line x1="69.20" y1="30.53" x2="69.20" y2="70.53" strokeWidth="1.25" />
-        <line x1="66.80" y1="29.47" x2="66.80" y2="69.47" strokeWidth="1.25" />
-        <line x1="64.40" y1="28.40" x2="64.40" y2="68.40" strokeWidth="1.25" />
-        <line x1="62.00" y1="27.33" x2="62.00" y2="67.33" strokeWidth="1.25" />
-        <line x1="59.60" y1="26.27" x2="59.60" y2="66.27" strokeWidth="1.25" />
-        <line x1="57.20" y1="25.20" x2="57.20" y2="65.20" strokeWidth="1.25" />
-        <line x1="54.80" y1="24.13" x2="54.80" y2="64.13" strokeWidth="1.25" />
-        <line x1="52.40" y1="23.07" x2="52.40" y2="63.07" strokeWidth="1.25" />
-        <line x1="50.00" y1="22.00" x2="14.00" y2="38.00" strokeWidth="1.05" />
-        <line x1="52.77" y1="23.23" x2="16.77" y2="39.23" strokeWidth="0.85" />
-        <line x1="55.54" y1="24.46" x2="19.54" y2="40.46" strokeWidth="0.85" />
-        <line x1="58.31" y1="25.69" x2="22.31" y2="41.69" strokeWidth="0.85" />
-        <line x1="61.08" y1="26.92" x2="25.08" y2="42.92" strokeWidth="0.85" />
-        <line x1="63.85" y1="28.15" x2="27.85" y2="44.15" strokeWidth="0.85" />
-        <line x1="66.62" y1="29.38" x2="30.62" y2="45.38" strokeWidth="0.85" />
-        <line x1="69.38" y1="30.62" x2="33.38" y2="46.62" strokeWidth="0.85" />
-        <line x1="72.15" y1="31.85" x2="36.15" y2="47.85" strokeWidth="0.85" />
-        <line x1="74.92" y1="33.08" x2="38.92" y2="49.08" strokeWidth="0.85" />
-        <line x1="77.69" y1="34.31" x2="41.69" y2="50.31" strokeWidth="0.85" />
-        <line x1="80.46" y1="35.54" x2="44.46" y2="51.54" strokeWidth="0.85" />
-        <line x1="83.23" y1="36.77" x2="47.23" y2="52.77" strokeWidth="0.85" />
-        <line x1="86.00" y1="38.00" x2="50.00" y2="54.00" strokeWidth="1.05" />
-      </g>
+      <path
+        fill="currentColor"
+        d="M0 0H5.4V6.2H3.2V1.1L11.5 15.2L19.8 1.1V6.2H17.6V0H23V25H17.6V19.2H19.8V15.2H17.6L13.4 20.6L11.5 17.8L9.6 20.6L5.4 15.2H3.2V19.2H5.4V25H0V0Z"
+      />
+      <path fill="currentColor" d="M5.4 6.2H8.2V12.2H5.4V6.2Z" />
+      <path fill="currentColor" d="M3.2 12.2H5.4V15.2H3.2V12.2Z" />
+      <path fill="currentColor" d="M0 19.2H3.2V25H0V19.2Z" />
+      <path fill="currentColor" d="M14.8 6.2H17.6V12.2H14.8V6.2Z" />
+      <path fill="currentColor" d="M17.6 12.2H19.8V15.2H17.6V12.2Z" />
+      <path fill="currentColor" d="M19.8 19.2H23V25H19.8V19.2Z" />
     </svg>
   );
 }

@@ -73,11 +73,21 @@
 
 .at-page {
   min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
   background: var(--at-black);
   color: var(--at-grey-1);
   font-family: var(--at-body), Georgia, serif;
+  font-size: 16px;
+  line-height: 1.35;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+}
+
+.at-page > main {
+  width: 100%;
+  flex: 1 0 auto;
 }
 
 @keyframes atUp {
@@ -893,6 +903,11 @@
   line-height: 1.1;
   letter-spacing: -0.02em;
 }
+.at-contact-email {
+  margin: 24px 0 0;
+  font-family: var(--at-head), sans-serif;
+  font-size: 18px;
+}
 
 .at-footer {
   position: relative;
@@ -903,6 +918,7 @@
   padding-top: 200px;
   display: flex;
   flex-direction: column;
+  flex-shrink: 0;
 }
 .at-footer-pattern {
   position: absolute;
@@ -914,7 +930,12 @@
   pointer-events: none;
 }
 .at-pattern-footer { width: 100%; }
-.at-pattern-footer svg { width: 100%; height: auto; display: block; }
+.at-pattern-footer svg {
+  width: 100%;
+  height: auto;
+  display: block;
+  vertical-align: bottom;
+}
 .at-footer-layout { margin-top: 0; }
 .at-footer-meta { color: var(--at-grey-2); }
 .at-footer-nav {
@@ -936,28 +957,51 @@
   font-family: var(--at-head), sans-serif;
   font-weight: 500;
   font-size: 12px;
-  letter-spacing: 0.03em;
+  letter-spacing: 3%;
   text-transform: uppercase;
-  line-height: 1.2;
+  line-height: 120%;
 }
-.at-credit { margin-top: 80px; color: var(--at-grey-1); }
+.at-credit {
+  margin-top: 80px;
+  color: var(--at-grey-1);
+  font-family: var(--at-head), sans-serif;
+  font-weight: 500;
+  font-size: 12px;
+  letter-spacing: 3%;
+  text-transform: uppercase;
+  line-height: 120%;
+}
 .at-link[data-state="active"] { color: var(--at-white); }
 .at-link.light { color: var(--at-grey-2); }
+.at-link.light:hover { color: var(--at-grey-2); }
+.at-link.light[data-state="active"] { color: var(--at-white); }
+
+/* Wordmark: optical match to original 1688×377 SVG slot */
 .at-wordmark {
   position: relative;
   margin-top: auto;
   width: 100%;
   padding: 200px var(--at-margin) var(--at-margin);
   color: var(--at-grey-1);
+  overflow: hidden;
 }
-.at-wordmark img,
-.at-wordmark svg {
+.at-wordmark-text {
+  margin: 0;
+  font-family: var(--at-head), sans-serif;
+  font-weight: 300;
+  font-size: clamp(72px, 16.5vw, 320px);
+  letter-spacing: -0.05em;
+  line-height: 0.85;
+  color: inherit;
+  white-space: nowrap;
+}
+.at-wordmark.mobile { display: none; }
+.at-wordmark.mobile svg {
   width: 100%;
   height: auto;
   display: block;
   color: inherit;
 }
-.at-wordmark.mobile { display: none; }
 
 .at-inner {
   padding: calc(var(--at-header) + 80px) var(--at-margin) 80px calc(var(--at-margin) + var(--at-sidebar) + var(--at-gutter));
@@ -1164,7 +1208,7 @@
     padding: 100px calc(6.1 * var(--vw, 1vw)) 0;
     color: var(--at-white-a10);
   }
-  .at-wordmark.mobile svg { width: 100%; height: auto; }
+  .at-wordmark.mobile svg { width: 100%; height: auto; color: inherit; }
   .at-modal-positioner.updates {
     left: calc(-1 * (2 * var(--at-column) + 2 * var(--at-gutter)));
     width: calc(5 * var(--at-column) + 4 * var(--at-gutter) + var(--at-margin));
