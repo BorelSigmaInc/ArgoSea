@@ -1,27 +1,27 @@
 @font-face {
   font-family: "FKAktual";
-  src: url("https://www.atalanta.tech/fonts/FTAktualTrial-Light.woff2") format("woff2");
+  src: url("/fonts/FTAktualTrial-Light.woff2") format("woff2");
   font-weight: 300;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: "FKAktual";
-  src: url("https://www.atalanta.tech/fonts/FTAktualTrial-Regular.woff2") format("woff2");
+  src: url("/fonts/FTAktualTrial-Regular.woff2") format("woff2");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: "FKAktual";
-  src: url("https://www.atalanta.tech/fonts/FTAktualTrial-Medium.woff2") format("woff2");
+  src: url("/fonts/FTAktualTrial-Medium.woff2") format("woff2");
   font-weight: 500;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: "MDLorien";
-  src: url("https://www.atalanta.tech/fonts/MDLorienTrial-Regular.woff2") format("woff2");
+  src: url("/fonts/MDLorienTrial-Regular.woff2") format("woff2");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -509,16 +509,16 @@
 
 .at-hero-wordmark {
   margin-bottom: 50px;
-  height: 24px;
+  height: 28px;
   padding-left: calc(var(--at-margin) + var(--at-sidebar) + var(--at-gutter));
   padding-right: var(--at-margin);
   opacity: 0;
+  color: var(--at-white);
 }
 .at-hero-wordmark img {
-  height: 24px;
+  height: 28px;
   width: auto;
   display: block;
-  filter: brightness(0) invert(1);
 }
 
 .at-hero h1,
@@ -1038,7 +1038,7 @@
   color: var(--at-grey-1);
   opacity: 0;
 }
-.at-mobile-wordmark img { width: 100%; height: auto; display: block; filter: brightness(0) invert(0.55); }
+.at-mobile-wordmark img { width: 100%; height: auto; display: block; color: var(--at-grey-1); }
 
 .at-filters { display: flex; flex-wrap: wrap; gap: 16px; margin: 0 0 40px; }
 .at-card {

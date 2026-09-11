@@ -5,10 +5,12 @@ import HeroLanding from "../components/atalanta/HeroLanding";
 import Reveal from "../components/atalanta/Reveal";
 import StickyCards from "../components/atalanta/StickyCards";
 import PatternDivider from "../components/atalanta/PatternDivider";
+import { SITE } from "../lib/atalanta/content";
 
 export const metadata = {
-  title: "Home | Atalanta",
-  description: "Provably correct decision-making for the world's most important missions.",
+  title: "Home",
+  description: SITE.description,
+  alternates: { canonical: "/" },
 };
 
 export default function HomePage() {

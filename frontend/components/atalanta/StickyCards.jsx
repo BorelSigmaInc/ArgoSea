@@ -13,47 +13,47 @@ const CARDS = [
   {
     title: (
       <>
-        <MarkWhite>Argo</MarkWhite>
+        <MarkWhite>Maersat</MarkWhite>
         <br />
-        The first software understanding platform.
+        The first maritime software understanding platform.
       </>
     ),
     body: null,
-    cta: { href: "/argo", label: "Learn More" },
+    cta: { href: "/platform/", label: "Learn More" },
   },
   {
     title: (
       <>
-        <MarkWhite>Argo</MarkWhite>
+        <MarkWhite>Maersat</MarkWhite>
         <br />
         for Energy.
       </>
     ),
-    body: "Argo helps energy operators prove the safety of critical infrastructure at operational speed. It verifies that control systems enforce safety constraints, ensures human-in-the-loop workflows are followed, and identifies failure modes before deployment, so that nuclear and grid systems perform correctly as conditions change.",
+    body: "Maersat helps energy operators prove the safety of critical infrastructure at operational speed. It verifies that control systems enforce safety constraints, ensures human-in-the-loop workflows are followed, and identifies failure modes before deployment, so that nuclear and grid systems perform correctly as conditions change.",
     playbackId: "DgkKrotT00yqD6Nibngy6ZvhYmPLUSVNH2Mgtt9DsfdE",
   },
   {
     title: (
       <>
-        <MarkWhite>Argo</MarkWhite>
+        <MarkWhite>Maersat</MarkWhite>
         <br />
         for Space.
       </>
     ),
-    body: "Argo helps space teams prove the resilience of communications and satellite systems in dynamic, contested environments. It verifies that networks maintain connectivity under disruption, identifies failure modes before they occur, and ensures critical links persist under adversarial conditions, so that mission-critical communications continue without interruption.",
+    body: "Maersat helps space teams prove the resilience of communications and satellite systems in dynamic, contested environments. It verifies that networks maintain connectivity under disruption, identifies failure modes before they occur, and ensures critical links persist under adversarial conditions, so that mission-critical communications continue without interruption.",
     playbackId: "GvYCtK7GtzVrLN02sFzmHwwxuYmtoc02Hl3q01Jg5n01xA00",
   },
   {
     title: (
       <>
-        <MarkWhite>Argo</MarkWhite>
+        <MarkWhite>Maersat</MarkWhite>
         <br />
         for Defense Systems.
       </>
     ),
-    body: "Argo helps defense organizations prove the security of complex systems with agility. It verifies that data remains isolated across security boundaries, ensures critical constraints are enforced, and identifies unintended system interactions, so that mission systems operate securely as requirements and conditions change.",
+    body: "Maersat helps defense organizations prove the security of complex systems with agility. It verifies that data remains isolated across security boundaries, ensures critical constraints are enforced, and identifies unintended system interactions, so that mission systems operate securely as requirements and conditions change.",
     playbackId: "HJX9eT01B4LCaP60201u01QQjuQ00UyKpS5fj00JUrHRW3MnU",
-    cta: { href: "/argo", label: "Learn more" },
+    cta: { href: "/platform/", label: "Learn more" },
   },
 ];
 
@@ -61,7 +61,7 @@ function SideLabel() {
   return (
     <h2 className="at-square-heading">
       <span className="at-sq" aria-hidden="true" />
-      Introducing Argo
+      Introducing Maersat
     </h2>
   );
 }

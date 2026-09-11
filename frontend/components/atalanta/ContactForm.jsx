@@ -9,7 +9,7 @@ export default function ContactForm({ compact = false }) {
     return (
       <div className="at-success">
         <p><span className="at-mark">Inquiry received!</span></p>
-        <p>We’ll be in touch shortly.</p>
+        <p>We’ll be in touch shortly at info@maersat.com.</p>
       </div>
     );
   }

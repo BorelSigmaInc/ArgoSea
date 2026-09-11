@@ -130,7 +130,7 @@ export default function SidePanel({
 
       {active === "fleet" && (
         <div className="ais-panel-body">
-          <p className="muted">Demo fleet — vessels marked verified from the ArgoSea API.</p>
+          <p className="muted">Demo fleet — vessels marked verified from the Maersat API.</p>
           {fleet.length === 0 && <p className="muted">No saved vessels yet. Click a ship and add it.</p>}
           <ul className="ais-hits">
             {fleet.map((v) => (

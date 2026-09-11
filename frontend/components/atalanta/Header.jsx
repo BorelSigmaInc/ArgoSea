@@ -10,13 +10,13 @@ import { UPDATE } from "../../lib/atalanta/content";
 
 const NAV = [
   { href: "/", label: "Home", match: (p) => p === "/" },
-  { href: "/argo", label: "Argo", match: (p) => p.startsWith("/argo") },
+  { href: "/platform", label: "Platform", match: (p) => p.startsWith("/platform") || p.startsWith("/argo") },
   { href: "/articles", label: "Learn", match: (p) => p.startsWith("/articles") || p.startsWith("/learn") },
   { href: "/careers", label: "Careers", match: (p) => p.startsWith("/careers") },
 ];
 
 const MOBILE_NAV = [
-  { href: "/argo", label: "Argo" },
+  { href: "/platform", label: "Platform" },
   { href: "/articles", label: "Learn" },
   { href: "/careers", label: "Careers" },
   { href: "/contact", label: "Contact Us" },
@@ -271,7 +271,7 @@ export default function Header() {
               ))}
             </nav>
             <div className="at-mobile-wordmark" data-mobile-wordmark aria-hidden="true">
-              <img src="/media/atalanta-wordmark.svg" alt="" />
+              <img src="/media/maersat-wordmark.svg" alt="" />
             </div>
           </div>
         </div>

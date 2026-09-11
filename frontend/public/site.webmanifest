@@ -1,0 +1,17 @@
+{
+  "name": "Maersat",
+  "short_name": "Maersat",
+  "description": "Maersat — maritime intelligence and provably correct decision-making for critical missions.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#37352f",
+  "theme_color": "#37352f",
+  "icons": [
+    {
+      "src": "/media/marine-logo.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

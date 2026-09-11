@@ -3,11 +3,15 @@ import { notFound, redirect } from "next/navigation";
 import Shell from "../../../components/atalanta/Shell";
 import Footer from "../../../components/atalanta/Footer";
 import MuxMedia from "../../../components/atalanta/MuxMedia";
-import { ARTICLES, articleBySlug, articlesByCategory } from "../../../lib/atalanta/content";
+import { ARTICLES, articleBySlug, articlesByCategory, SITE } from "../../../lib/atalanta/content";
 
 const CATS = ["all", "research", "ideas", "press"];
 
-export const metadata = { title: "Learn | Atalanta" };
+export const metadata = {
+  title: "Learn",
+  description: "Maersat Learn — research, ideas, and press on maritime intelligence and software understanding.",
+  alternates: { canonical: "/articles/all/1/" },
+};
 
 export default async function ArticlesCatchAll({ params }) {
   const { path = [] } = await params;
@@ -22,7 +26,7 @@ export default async function ArticlesCatchAll({ params }) {
         <article className="at-inner at-enter">
           <p className="at-kicker">Articles</p>
           <h1>Learn</h1>
-          <p>From theory to operational impact.</p>
+          <p>From theory to operational impact — curated by Maersat.</p>
           <div className="at-filters">
             {CATS.map((c) => (
               <Link
@@ -66,9 +70,7 @@ export default async function ArticlesCatchAll({ params }) {
           <p>
             <Link className="at-cta" href="/articles/all/1">Read all</Link>
             {" · "}
-            <a className="at-cta" href={`https://www.atalanta.tech/articles/${article.slug}/`} target="_blank" rel="noreferrer">
-              Canonical source
-            </a>
+            <a className="at-cta" href={`mailto:${SITE.email}`}>{SITE.email}</a>
           </p>
         </article>
         <Footer />
@@ -80,8 +82,7 @@ export default async function ArticlesCatchAll({ params }) {
 }
 
 export function generateStaticParams() {
-  return [
-    ...CATS.map((c) => ({ path: [c, "1"] })),
-    ...ARTICLES.map((a) => ({ path: [a.slug] })),
-  ];
+  const cats = CATS.flatMap((c) => [{ path: [c, "1"] }]);
+  const articles = ARTICLES.map((a) => ({ path: [a.slug] }));
+  return [...cats, ...articles];
 }

@@ -1,22 +1,26 @@
 import Shell from "../../components/atalanta/Shell";
 import Footer from "../../components/atalanta/Footer";
+import { SITE } from "../../lib/atalanta/content";
 
-export const metadata = { title: "Terms of Use | Atalanta" };
+export const metadata = {
+  title: "Terms of Use",
+  description: "Maersat terms of use for maersat.com.",
+  alternates: { canonical: "/terms-of-use/" },
+};
 
 export default function TermsPage() {
   return (
     <Shell>
       <article className="at-inner at-enter">
-        <p className="at-kicker">Terms</p>
+        <p className="at-kicker">Legal</p>
         <h1>Terms of Use</h1>
-        <p>Each time you use this Site you agree to the Site Terms then in effect. You must be at least 18 (or the age of majority where you live).</p>
-        <p><b style={{ color: "#fcfaf3" }}>License.</b> Atalanta grants a limited, personal, non-transferable license for compliant use. Prohibited use terminates the grant.</p>
-        <p><b style={{ color: "#fcfaf3" }}>Prohibited uses include</b> malware or DDoS, disrupting the Site, sharing access, undermining the Privacy Policy or security, violating export/sanctions law, and uploading Site content into an AI model.</p>
-        <p>Information you send via the Site is treated as non-confidential except as described in the Privacy Policy.</p>
+        <p>These Terms govern access to and use of {SITE.domain.replace("https://", "")} operated by {SITE.legalName}.</p>
+        <p><b style={{ color: "#fcfaf3" }}>License.</b> Maersat grants a limited, personal, non-transferable license for compliant use. Prohibited use terminates the grant.</p>
+        <p><b style={{ color: "#fcfaf3" }}>Contact.</b> <a className="at-cta" href={`mailto:${SITE.email}`}>{SITE.email}</a></p>
         <p>
-          <a className="at-cta" href="https://www.atalanta.tech/terms-of-use/" target="_blank" rel="noreferrer">
-            Full terms on atalanta.tech
-          </a>
+          <a className="at-cta" href="/terms-of-use/">Terms of Use</a>
+          {" · "}
+          <a className="at-cta" href="/privacy-policy/">Privacy Policy</a>
         </p>
       </article>
       <Footer />

@@ -1,7 +1,7 @@
 import Shell from "../../components/atalanta/Shell";
 import Footer from "../../components/atalanta/Footer";
 
-export const metadata = { title: "Rich text | Atalanta" };
+export const metadata = { title: "Rich text" };
 
 export default function RichTextPage() {
   return (

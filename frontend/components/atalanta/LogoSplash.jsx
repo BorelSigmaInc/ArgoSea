@@ -43,7 +43,7 @@ export default function LogoSplash() {
       <div className="at-logo-splash-mark">
         <Logo />
       </div>
-      <p className="at-logo-splash-name">MarineMIS</p>
+      <p className="at-logo-splash-name">Maersat</p>
     </div>
   );
 }

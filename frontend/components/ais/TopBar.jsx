@@ -9,7 +9,7 @@ export default function TopBar({ query, onQuery, onSearch }) {
     <header className="ais-topbar">
       <Link href="/en/ais/home/centerx:13.2/centery:13.8/zoom:3" className="ais-brand">
         <span className="ais-brand-logo"><Logo /></span>
-        <span className="ais-brand-name">MarineMIS</span>
+        <span className="ais-brand-name">Maersat</span>
         <span className="ais-brand-sub">Live Map</span>
       </Link>
 

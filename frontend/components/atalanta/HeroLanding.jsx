@@ -49,12 +49,7 @@ export default function HeroLanding() {
   return (
     <section className="at-hero section-hero-landing" ref={ref}>
       <div className="at-hero-wordmark">
-        <img
-          src="https://cdn.sanity.io/images/pch7hdea/production/0c2fea3bfedf2a1ac3ad885b7f3d1fea27cffbdd-113x25.svg?w=400&fit=max&auto=format"
-          alt="Atalanta"
-          width={113}
-          height={25}
-        />
+        <img src="/media/maersat-wordmark.svg" alt="Maersat" width={220} height={28} />
       </div>
       <h1 className="at-hero-title at-hero-heading">
         Provably correct decision-making for{" "}
@@ -67,7 +62,7 @@ export default function HeroLanding() {
           </div>
         </div>
         <p className="at-lede">
-          Atalanta is a mathematical AI company that brings speed and rigor to the design, implementation, and verification of complex systems.
+          Maersat is a mathematical AI and maritime intelligence company that brings speed and rigor to the design, implementation, and verification of complex systems.
         </p>
       </div>
     </section>

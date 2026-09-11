@@ -5,11 +5,12 @@ import { usePathname } from "next/navigation";
 import { useLayoutEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { SITE } from "../../lib/atalanta/content";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const FOOTER_NAV = [
-  { href: "/argo", label: "Argo" },
+  { href: "/platform", label: "Platform" },
   { href: "/articles", label: "Learn" },
   { href: "/careers", label: "Careers" },
   { href: "/contact", label: "Contact Us" },
@@ -18,9 +19,9 @@ const FOOTER_NAV = [
 ];
 
 const SOCIALS = [
-  { href: "https://www.linkedin.com/company/atalanta-technologies/", label: "LinkedIn" },
-  { href: "https://x.com/AtalantaTech", label: "X" },
-  { href: "https://www.youtube.com/@AtalantaTech", label: "YouTube" },
+  { href: "https://www.linkedin.com/company/maersat", label: "LinkedIn" },
+  { href: "https://x.com/maersat", label: "X" },
+  { href: "https://www.youtube.com/@Maersat", label: "YouTube" },
 ];
 
 function NavIcon({ active }) {
@@ -86,7 +87,7 @@ export default function Footer() {
             <p className="at-copyr">
               COPYRIGHT 2026
               <br />
-              ATALANTA TECHNOLOGIES INC.
+              MAERSAT TECHNOLOGIES INC.
             </p>
             <div className="at-socials">
               {SOCIALS.map((s) => (
@@ -96,8 +97,8 @@ export default function Footer() {
                 </a>
               ))}
             </div>
-            <a className="at-link at-credit" href="https://www.alright.studio" target="_blank" rel="noreferrer">
-              Site Credit
+            <a className="at-link at-credit" href={`mailto:${SITE.email}`}>
+              {SITE.email}
             </a>
           </div>
         </div>
@@ -124,12 +125,10 @@ export default function Footer() {
       </div>
 
       <div className="at-wordmark" aria-hidden="true">
-        <img src="/media/atalanta-wordmark.svg" alt="" />
+        <img src="/media/maersat-wordmark.svg" alt="" />
       </div>
       <div className="at-wordmark mobile" aria-hidden="true">
-        <svg viewBox="0 0 23 25" fill="none">
-          <path d="M10.6381 0H10.5881H7.97835V5.31958H10.6381V0.14167L16.4452 16.4893H11.1701V13.8323H5.31995V16.4893H2.66016V19.6811H5.31995V16.4921H11.1701V19.1491H17.3911L19.4689 24.9993H22.869L13.9854 0H10.6381Z" fill="currentColor" />
-        </svg>
+        <img src="/media/marine-logo.svg" alt="" />
       </div>
     </footer>
   );

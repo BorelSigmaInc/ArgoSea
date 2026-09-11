@@ -22,7 +22,7 @@ export default function QuantumPage() {
   return (
     <main style={{ padding: "2rem", maxWidth: 1100, margin: "0 auto", background: "#0b0f14", minHeight: "100vh", color: "#e6edf3" }}>
       <p><Link href="/en/ais/home/centerx:13.2/centery:13.8/zoom:3" style={{ color: "#79c0ff" }}>← Live Map</Link></p>
-      <h1 style={{ fontSize: 32, marginBottom: 4 }}>ArgoSea</h1>
+      <h1 style={{ fontSize: 32, marginBottom: 4 }}>Maersat</h1>
       <p style={{ color: "#7d8590", marginTop: 0 }}>Provably correct maritime decisions, quantum-verified.</p>
 
       <section style={{ marginTop: 32, padding: 20, background: "#111820", borderRadius: 12 }}>
@@ -47,7 +47,7 @@ export default function QuantumPage() {
         ) : <p>Loading…</p>}
       </section>
 
-      <p style={{ marginTop: 40, fontSize: 12, color: "#484f58" }}>© 2026 ArgoSea · BorelSigma Inc.</p>
+      <p style={{ marginTop: 40, fontSize: 12, color: "#484f58" }}>© 2026 Maersat · info@maersat.com</p>
     </main>
   );
 }
