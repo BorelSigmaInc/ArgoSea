@@ -11,6 +11,7 @@ import { UPDATE } from "../../lib/atalanta/content";
 const NAV = [
   { href: "/", label: "Home", match: (p) => p === "/" },
   { href: "/marine-mis", label: "Marine", match: (p) => p.startsWith("/marine-mis") || p.startsWith("/en/ais") },
+  { href: "/update", label: "Update", match: (p) => p.startsWith("/update") || p.startsWith("/products/maer") },
   { href: "/platform", label: "Platform", match: (p) => p.startsWith("/platform") || p.startsWith("/argo") },
   { href: "/articles", label: "Learn", match: (p) => p.startsWith("/articles") || p.startsWith("/learn") },
   { href: "/careers", label: "Careers", match: (p) => p.startsWith("/careers") },
@@ -18,6 +19,7 @@ const NAV = [
 
 const MOBILE_NAV = [
   { href: "/marine-mis", label: "Marine" },
+  { href: "/update", label: "Update" },
   { href: "/platform", label: "Platform" },
   { href: "/articles", label: "Learn" },
   { href: "/careers", label: "Careers" },

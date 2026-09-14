@@ -10,6 +10,8 @@ const nextConfig = {
     return [
       { source: "/argo", destination: "/platform/", permanent: true },
       { source: "/argo/", destination: "/platform/", permanent: true },
+      { source: "/products/maer", destination: "/update/", permanent: true },
+      { source: "/products/maer/", destination: "/update/", permanent: true },
       { source: "/articles/viasat-announcement", destination: "/articles/satellite-resilience/", permanent: true },
       { source: "/articles/viasat-announcement/", destination: "/articles/satellite-resilience/", permanent: true },
       { source: "/articles/national-press-club-remarks", destination: "/articles/software-understanding/", permanent: true },

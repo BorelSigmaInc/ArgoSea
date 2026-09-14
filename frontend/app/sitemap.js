@@ -5,6 +5,8 @@ export default function sitemap() {
   const staticRoutes = [
     "",
     "/platform/",
+    "/update/",
+    "/products/maer/",
     "/marine-mis/",
     "/articles/all/1/",
     "/articles/research/1/",

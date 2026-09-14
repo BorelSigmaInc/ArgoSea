@@ -40,9 +40,11 @@ export default function PlatformPage() {
           <p>
             <Link className="at-cta" href="/contact">Request a Demo</Link>
             {" · "}
+            <Link className="at-cta" href="/update/">Maer Pricing</Link>
+            {" · "}
             <a className="at-cta" href={`mailto:${SITE.email}`}>{SITE.email}</a>
             {" · "}
-            <Link className="at-cta" href="/en/ais/home/centerx:13.2/centery:13.8/zoom:3">Open Live Map</Link>
+            <Link className="at-cta" href="/marine-mis/">Open Marine</Link>
           </p>
         </div>
       </section>

@@ -1070,6 +1070,257 @@
   font-size: clamp(36px, 5vw, 56px);
 }
 .at-inner p { color: var(--at-grey-2); font-size: 18px; line-height: 1.4; margin: 0 0 1em; }
+.at-kicker {
+  margin: 0 0 16px;
+  color: var(--at-grey-1);
+  font-family: var(--at-head), sans-serif;
+  font-weight: 500;
+  font-size: 12px;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+.at-kicker a { color: inherit; }
+.at-kicker a:hover { color: var(--at-grey-2); }
+
+/* Maer product pricing matrix — Maersat aesthetic */
+.at-maer-eyebrow {
+  margin: 0 0 12px;
+  color: var(--at-grey-1);
+  font-family: var(--at-head), sans-serif;
+  font-weight: 500;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.at-maer-intro { max-width: 920px; padding-bottom: 40px; }
+.at-maer-matrix-wrap {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  padding: 0 var(--at-margin) 40px calc(var(--at-margin) + var(--at-sidebar) + var(--at-gutter));
+  overflow-x: auto;
+}
+.at-maer-matrix {
+  min-width: 920px;
+  border-top: 1px solid var(--at-white-a10);
+}
+.at-maer-row {
+  display: grid;
+  grid-template-columns: minmax(200px, 1.2fr) repeat(3, minmax(160px, 1fr));
+  border-bottom: 1px solid var(--at-white-a10);
+}
+.at-maer-feature-col,
+.at-maer-plan-col {
+  padding: 18px 16px;
+}
+.at-maer-feature-col {
+  color: var(--at-grey-1);
+  font-family: var(--at-head), sans-serif;
+  font-weight: 500;
+  font-size: 13px;
+  letter-spacing: 0.02em;
+  display: flex;
+  align-items: center;
+}
+.at-maer-head .at-maer-feature-col {
+  color: var(--at-grey-2);
+  text-transform: uppercase;
+  font-size: 12px;
+  letter-spacing: 0.06em;
+}
+.at-maer-plan-col {
+  position: relative;
+  color: var(--at-grey-2);
+  font-size: 14px;
+  line-height: 1.35;
+}
+.at-maer-plan-col.is-recommended {
+  background: color-mix(in srgb, var(--at-white) 4%, transparent);
+}
+.at-maer-head .at-maer-plan-col {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: flex-start;
+  padding-top: 28px;
+  padding-bottom: 28px;
+}
+.at-maer-head h2 {
+  margin: 0;
+  color: var(--at-white);
+  font-family: var(--at-head), sans-serif;
+  font-weight: 300;
+  font-size: 22px;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+}
+.at-maer-price {
+  margin: 0;
+  color: var(--at-grey-2);
+  font-family: var(--at-head), sans-serif;
+  font-size: 15px;
+}
+.at-maer-price span {
+  color: var(--at-white);
+  font-size: 32px;
+  font-weight: 300;
+  letter-spacing: -0.03em;
+  margin-right: 2px;
+}
+.at-maer-target {
+  margin: 0;
+  color: var(--at-grey-1);
+  font-family: var(--at-head), sans-serif;
+  font-size: 12px;
+  line-height: 1.35;
+  letter-spacing: 0.02em;
+}
+.at-maer-desc {
+  margin: 0;
+  color: var(--at-grey-2);
+  font-size: 13px;
+  line-height: 1.4;
+  max-width: 28ch;
+}
+.at-maer-badge {
+  display: inline-block;
+  padding: 4px 8px;
+  border: 1px solid var(--at-white-a25);
+  color: var(--at-yellow);
+  font-family: var(--at-head), sans-serif;
+  font-weight: 500;
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.at-maer-optin {
+  display: inline-flex;
+  align-items: center;
+  margin-top: 4px;
+  padding: 10px 16px;
+  background: var(--at-white);
+  color: var(--at-black);
+  font-family: var(--at-head), sans-serif;
+  font-weight: 500;
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  transition: background var(--at-transition), color var(--at-transition);
+}
+.at-maer-optin:hover {
+  background: var(--at-grey-2);
+  color: var(--at-black);
+}
+.at-maer-cell {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+.at-maer-cell.is-on { color: var(--at-grey-2); }
+.at-maer-cell.is-off { color: var(--at-grey-1-a50); }
+.at-maer-mark {
+  flex-shrink: 0;
+  width: 12px;
+  font-size: 11px;
+  line-height: 1.4;
+}
+.at-maer-cell.is-on .at-maer-mark { color: var(--at-white); }
+.at-maer-note .at-copy p { font-size: 18px; }
+
+.at-maer-cards { display: none; }
+
+.at-maer-card {
+  margin: 0 var(--at-margin) 20px calc(var(--at-margin) + var(--at-sidebar) + var(--at-gutter));
+  padding: 24px 20px 28px;
+  border: 1px solid var(--at-white-a10);
+  background: color-mix(in srgb, var(--at-white) 2%, transparent);
+}
+.at-maer-card.is-recommended {
+  border-color: var(--at-white-a25);
+  background: color-mix(in srgb, var(--at-white) 5%, transparent);
+}
+.at-maer-card h2 {
+  margin: 10px 0 8px;
+  color: var(--at-white);
+  font-family: var(--at-head), sans-serif;
+  font-weight: 300;
+  font-size: 28px;
+  letter-spacing: -0.02em;
+}
+.at-maer-card .at-maer-optin { margin: 16px 0 20px; }
+.at-maer-card-features {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid var(--at-white-a10);
+}
+.at-maer-card-features li {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--at-white-a10);
+  color: var(--at-grey-2);
+  font-size: 14px;
+  line-height: 1.35;
+}
+.at-maer-card-features li.is-off { color: var(--at-grey-1-a50); }
+.at-maer-card-features strong {
+  display: block;
+  color: var(--at-grey-1);
+  font-family: var(--at-head), sans-serif;
+  font-weight: 500;
+  font-size: 12px;
+  letter-spacing: 0.02em;
+  margin-bottom: 2px;
+}
+.at-maer-card-features em {
+  font-style: normal;
+  color: inherit;
+}
+
+@media (max-width: 1100px) {
+  .at-nav { gap: 12px; }
+  .at-nav a, .at-modal-btn { font-size: 11px; }
+}
+
+@media (max-width: 900px) {
+  .at-maer-desktop { display: none; }
+  .at-maer-cards { display: block; padding-bottom: 24px; }
+  .at-maer-card {
+    margin-left: calc(var(--at-margin) + var(--at-sidebar) + 8px);
+  }
+}
+
+@media (max-width: 800px) {
+  .at-maer-matrix-wrap {
+    padding-left: calc(var(--at-margin) + var(--at-sidebar) + 8px);
+  }
+  .at-maer-head h2 { font-size: 18px; }
+  .at-maer-price span { font-size: 26px; }
+  .at-maer-card h2 { font-size: 24px; }
+  .at-burger {
+    min-height: 46px;
+    padding: 12px 16px;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .at-mobile-link {
+    font-size: clamp(28px, 8vw, 40px);
+    min-height: 44px;
+    padding: 4px 0;
+  }
+  .at-mobile-panel {
+    height: min(88lvh, 100dvh);
+    padding-bottom: max(24px, env(safe-area-inset-bottom));
+    row-gap: 48px;
+  }
+  .at-mobile-panel nav {
+    padding-right: var(--at-margin);
+  }
+  .at-inner h1 { font-size: clamp(28px, 8vw, 40px); }
+  .at-inner p { font-size: 16px; }
+  .at-maer-note .at-copy p { font-size: 16px; }
+}
 .at-list { padding-left: 1.2em; color: var(--at-grey-2); }
 .at-list li { margin: 0.6em 0; }
 
