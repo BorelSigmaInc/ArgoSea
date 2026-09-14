@@ -1137,13 +1137,30 @@
 .at-maer-plan-col.is-recommended {
   background: color-mix(in srgb, var(--at-white) 4%, transparent);
 }
+.at-maer-head {
+  align-items: stretch;
+}
 .at-maer-head .at-maer-plan-col {
   display: flex;
   flex-direction: column;
   gap: 10px;
   align-items: flex-start;
+  justify-content: flex-start;
+  height: 100%;
+  min-height: 100%;
   padding-top: 28px;
   padding-bottom: 28px;
+}
+.at-maer-head .at-maer-target {
+  min-height: 2.7em;
+}
+.at-maer-head .at-maer-desc {
+  min-height: 4.2em;
+  flex: 1 1 auto;
+}
+.at-maer-head .at-maer-optin {
+  margin-top: auto;
+  align-self: flex-start;
 }
 .at-maer-head h2 {
   margin: 0;
