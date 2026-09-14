@@ -1491,20 +1491,26 @@ body.at-menu-open {
 
 @media (max-width: 1024px) {
   .at-nav { display: none !important; }
+  .at-modals { display: none !important; }
+  .at-header {
+    grid-template-columns: auto 1fr auto;
+  }
   .at-mobile-slot {
     display: flex !important;
     align-items: stretch;
     height: 100%;
-    width: 100%;
+    width: auto;
     min-width: 0;
-    grid-column: 2;
+    grid-column: 3;
+    justify-self: end;
   }
   .at-burger {
     display: flex !important;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: flex-end;
     gap: 8px;
-    width: 100%;
+    width: auto;
+    min-width: 96px;
     min-height: 44px;
     padding: 12px 16px;
     background: var(--at-grey-1-a15);
@@ -1517,12 +1523,6 @@ body.at-menu-open {
   }
   .at-burger[data-state="idle"] .at-modal-icon { display: none; }
   .at-burger[data-state="active"] .at-modal-icon { display: inline-flex; }
-  .at-contact-modal { display: none; }
-  .at-modals { position: static; grid-template-columns: 1fr; }
-  .at-modal-divider { display: none; }
-  .at-header {
-    grid-template-columns: auto minmax(96px, 1fr) minmax(120px, 40vw);
-  }
   .at-mobile-wrapper {
     z-index: 25;
     position: fixed;
@@ -1535,6 +1535,46 @@ body.at-menu-open {
   .at-mobile-wrapper[data-state="open"] {
     pointer-events: auto;
     z-index: 28;
+  }
+  .at-mobile-panel {
+    height: min(92lvh, 100dvh);
+    row-gap: 28px;
+    padding-bottom: max(20px, env(safe-area-inset-bottom));
+  }
+  .at-mobile-panel nav { row-gap: 4px; }
+  .at-mobile-link {
+    font-size: clamp(24px, 6.5vw, 34px);
+    min-height: 40px;
+  }
+  .at-mobile-updates {
+    padding-left: calc(var(--at-margin) + var(--at-sidebar) + var(--at-gutter));
+    padding-right: var(--at-margin);
+  }
+  .at-mobile-updates-label {
+    margin: 0 0 12px;
+    font-family: var(--at-head), sans-serif;
+    font-size: 12px;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    color: var(--at-grey-1);
+  }
+  .at-mobile-update {
+    padding: 12px;
+    background: var(--at-grey-1-a15);
+  }
+  .at-mobile-update img {
+    width: 64px;
+    aspect-ratio: 3 / 4;
+  }
+  .at-mobile-update h3 {
+    font-size: 13px;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .at-mobile-wordmark {
+    padding-top: 8px;
   }
 }
 

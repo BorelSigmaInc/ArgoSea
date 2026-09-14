@@ -292,6 +292,22 @@ export default function Header() {
                 </Link>
               ))}
             </nav>
+            <div className="at-mobile-updates" data-mobile-nav-item>
+              <p className="at-mobile-updates-label">
+                Updates <span className="at-badge">1 New</span>
+              </p>
+              <Link
+                href={UPDATE.href}
+                className="at-update at-mobile-update"
+                onClick={() => setMobile(false)}
+              >
+                <img src={UPDATE.image} alt="" />
+                <div>
+                  <h3>{UPDATE.title}</h3>
+                  <p className="at-update-cta">Read the Announcement</p>
+                </div>
+              </Link>
+            </div>
             <div className="at-mobile-wordmark" data-mobile-wordmark aria-hidden="true">
               <span className="at-hero-wordmark-text">Maersat</span>
             </div>
