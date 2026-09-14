@@ -67,15 +67,17 @@ export default function HeroLanding() {
 
   return (
     <section className="at-hero section-hero-landing" ref={ref}>
-      <div className="at-hero-wordmark logo">
-        <span className="at-hero-wordmark-text">Maersat</span>
-      </div>
+      <div className="at-hero-copy">
+        <div className="at-hero-wordmark logo">
+          <span className="at-hero-wordmark-text">Maersat</span>
+        </div>
 
-      <div className="at-hero-heading heading">
-        <h1 className="at-hero-title">
-          Provably correct decision-making for{" "}
-          <MarkWhite>the world’s most important missions.</MarkWhite>
-        </h1>
+        <div className="at-hero-heading heading">
+          <h1 className="at-hero-title">
+            Provably correct decision-making for{" "}
+            <MarkWhite>the world’s most important missions.</MarkWhite>
+          </h1>
+        </div>
       </div>
 
       <div className="at-hero-stage content">
