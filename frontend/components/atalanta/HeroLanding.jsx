@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useLayoutEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -94,6 +95,9 @@ export default function HeroLanding() {
             <p className="at-lede">
               Maersat is a mathematical AI company that brings speed and rigor to the design, implementation, and verification of complex systems.
             </p>
+            <Link href="/update" className="at-hero-maer" aria-label="Maer pricing">
+              Maer
+            </Link>
           </div>
         </div>
       </div>

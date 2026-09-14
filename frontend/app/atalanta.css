@@ -604,6 +604,29 @@ body.at-menu-open {
   max-width: 40ch;
 }
 
+.at-hero-maer {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+  min-height: 44px;
+  padding: 12px 22px;
+  background: var(--at-white);
+  color: var(--at-black);
+  font-family: var(--at-head), sans-serif;
+  font-weight: 500;
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: background-color var(--at-transition), color var(--at-transition);
+  -webkit-tap-highlight-color: transparent;
+}
+.at-hero-maer:hover {
+  background: var(--at-yellow);
+  color: var(--at-black);
+}
+
 .at-lede {
   margin: 0;
   max-width: 40ch;
@@ -1675,6 +1698,12 @@ body.at-menu-open {
     font-family: var(--at-body), Georgia, serif;
     font-size: clamp(14px, 3.6vw, 17px);
     line-height: 1.35;
+  }
+  .at-hero-maer {
+    margin-top: 16px;
+    min-height: 46px;
+    padding: 12px 24px;
+    font-size: 14px;
   }
 }
 
