@@ -2,6 +2,14 @@ import "./globals.css";
 import "./atalanta.css";
 import { SITE } from "../lib/atalanta/content";
 
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+  viewportFit: "cover",
+  themeColor: "#37352f",
+};
+
 export const metadata = {
   metadataBase: new URL(SITE.domain),
   title: {

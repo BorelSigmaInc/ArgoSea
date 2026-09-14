@@ -68,8 +68,9 @@ export default function Header() {
       const nav = Array.from(header.querySelectorAll("[data-header-nav-item]"));
       const modals = Array.from(header.querySelectorAll("[data-header-modal-item]"));
       const burger = header.querySelector("[data-header-mobile-menu]");
-      const targets = [logo, ...nav, ...modals, burger].filter(Boolean);
-      gsap.set(targets, { opacity: 0, x: -10 });
+      // Never leave the burger invisible — CSS controls show/hide by breakpoint.
+      gsap.set([logo, ...nav, ...modals].filter(Boolean), { opacity: 0, x: -10 });
+      if (burger) gsap.set(burger, { opacity: 1, x: 0, clearProps: "transform" });
       const tl = gsap.timeline({
         onComplete: () => {
           header.dataset.animated = "true";
@@ -77,9 +78,6 @@ export default function Header() {
       });
       if (logo) tl.to(logo, { opacity: 1, x: 0, duration: 0.6, ease: "power2.out" });
       if (nav.length) tl.to(nav, { opacity: 1, x: 0, duration: 0.6, ease: "power2.out", stagger: { amount: 0.1 } }, "<0.1");
-      if (burger && window.innerWidth <= 800) {
-        tl.to(burger, { opacity: 1, x: 0, duration: 0.6, ease: "power2.out" }, "<0.1");
-      }
       if (modals.length) {
         tl.to(modals, { opacity: 1, x: 0, duration: 0.6, ease: "power2.out", stagger: { amount: 0.1 } }, "<0.1");
       }
@@ -90,6 +88,15 @@ export default function Header() {
       ctx.revert();
     };
   }, []);
+
+  useEffect(() => {
+    document.documentElement.classList.toggle("at-menu-open", mobile);
+    document.body.classList.toggle("at-menu-open", mobile);
+    return () => {
+      document.documentElement.classList.remove("at-menu-open");
+      document.body.classList.remove("at-menu-open");
+    };
+  }, [mobile]);
 
   useEffect(() => {
     setOpen(null);
