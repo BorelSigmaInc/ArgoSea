@@ -3,17 +3,18 @@ import { SITE } from "../../lib/atalanta/content";
 
 export const MAER_PLANS = [
   {
-    id: "starter",
-    name: "Maer Starter",
+    id: "maer",
+    name: "Maer",
     price: "$299",
     period: "/mo",
     recommended: false,
     target: "Small operators, indie devs, single-vessel",
     description:
       "Entry maritime intelligence API with 10K calls/mo and quantum verification.",
+    paymentUrl: "https://buy.stripe.com/5kQ5kE0r2e4Qe5A6bza7C04",
   },
   {
-    id: "pro",
+    id: "maer-pro",
     name: "Maer Pro",
     price: "$449",
     period: "/mo",
@@ -21,16 +22,18 @@ export const MAER_PLANS = [
     target: "Growing fleets, small enterprises",
     description:
       "Professional maritime intelligence with risk screening and 100K calls/mo.",
+    paymentUrl: "https://buy.stripe.com/00waEYb5G6Co6D89nLa7C06",
   },
   {
-    id: "enterprise",
-    name: "Maer Enterprise",
+    id: "maer-pro-plus",
+    name: "Maer Pro+",
     price: "$499",
     period: "/mo",
     recommended: false,
     target: "Defense, energy, government-adjacent",
     description:
       "Enterprise-grade intelligence with unlimited calls, SLA, and dedicated QPU quota.",
+    paymentUrl: "https://buy.stripe.com/28E28sddO8Kw2mS6bza7C05",
   },
 ];
 
@@ -88,9 +91,14 @@ export default function MaerPricing({ backHref = "/platform/", backLabel = "← 
                 </p>
                 <p className="at-maer-target">{plan.target}</p>
                 <p className="at-maer-desc">{plan.description}</p>
-                <Link className="at-maer-optin" href={`/contact/?product=maer&plan=${plan.id}`}>
+                <a
+                  className="at-maer-optin"
+                  href={plan.paymentUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   Opt-in →
-                </Link>
+                </a>
               </div>
             ))}
           </div>
@@ -129,9 +137,14 @@ export default function MaerPricing({ backHref = "/platform/", backLabel = "← 
             </p>
             <p className="at-maer-target">{plan.target}</p>
             <p className="at-maer-desc">{plan.description}</p>
-            <Link className="at-maer-optin" href={`/contact/?product=maer&plan=${plan.id}`}>
+            <a
+              className="at-maer-optin"
+              href={plan.paymentUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               Opt-in →
-            </Link>
+            </a>
             <ul className="at-maer-card-features">
               {MAER_FEATURES.map((feature) => {
                 const value = feature.values[planIndex];
@@ -155,7 +168,7 @@ export default function MaerPricing({ backHref = "/platform/", backLabel = "← 
         <div className="at-side"><span className="at-sq" /> Pricing</div>
         <div className="at-copy">
           <p>
-            Billed monthly in USD. Pro is the mid-market sweet spot; Enterprise sits close to Pro so premium capacity is an easy upgrade.
+            Billed monthly in USD via Stripe. Pro is the mid-market sweet spot; Pro+ sits close to Pro so premium capacity is an easy upgrade.
             Need a custom seat count, air-gapped deployment, or dedicated QPU quota?{" "}
             <Link className="at-cta" href="/contact/">Contact us</Link>
             {" · "}
