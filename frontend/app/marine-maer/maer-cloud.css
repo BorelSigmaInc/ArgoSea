@@ -40,14 +40,17 @@
 .maer-login-main {
   display: grid;
   grid-template-columns: minmax(280px, 480px) 1fr;
+  grid-template-rows: 1fr auto;
   min-height: 100vh;
+  min-height: 100dvh;
 }
 
 .maer-login-left {
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
   background: var(--maer-white);
+  grid-column: 1;
+  grid-row: 1;
 }
 
 .maer-login-copy {
@@ -63,6 +66,7 @@
 }
 
 .maer-login-copy p { color: var(--maer-text-2); line-height: 1.45; }
+.maer-login-demo { font-size: 12px !important; color: #525252 !important; }
 
 .maer-field { margin: 28px 0 18px; }
 .maer-field label {
@@ -92,6 +96,7 @@
   font-size: 14px;
   cursor: pointer;
   width: 100%;
+  margin: 8px 0 20px;
 }
 .maer-btn:hover { background: var(--maer-blue-h); }
 .maer-btn:disabled { background: #8d8d8d; cursor: not-allowed; }
@@ -101,61 +106,38 @@
   width: auto;
   min-height: 32px;
   padding: 0;
+  margin: 0;
 }
 
 .maer-login-aside {
   position: relative;
   overflow: hidden;
   min-height: 100vh;
+  min-height: 100dvh;
   background: #061018;
+  grid-column: 2;
+  grid-row: 1 / -1;
 }
 
-.maer-login-mux.at-mux,
-.maer-login-aside .at-mux {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-}
-
-.maer-login-aside .at-mux-poster,
-.maer-login-aside video {
+.maer-login-media,
+.maer-login-video {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center;
   display: block;
-}
-
-.maer-login-aside .at-mux-poster {
-  z-index: 1;
-  transition: opacity 0.6s ease;
-}
-
-.maer-login-aside .at-mux.is-ready .at-mux-poster { opacity: 0; }
-
-.maer-login-aside video {
-  z-index: 1;
-  opacity: 0;
+  background: #061018;
   pointer-events: none;
-  transition: opacity 0.8s ease;
+  border: 0;
 }
 
-.maer-login-aside .at-mux.is-ready video { opacity: 1; }
-
-.maer-login-aside .at-mux-mask {
-  position: absolute;
-  inset: 0;
-  z-index: 2;
-  pointer-events: none;
-}
-
-.maer-login-aside video::-webkit-media-controls,
-.maer-login-aside video::-webkit-media-controls-enclosure,
-.maer-login-aside video::-webkit-media-controls-start-playback-button,
-.maer-login-aside video::-webkit-media-controls-overlay-play-button {
+.maer-login-video::-webkit-media-controls,
+.maer-login-video::-webkit-media-controls-enclosure,
+.maer-login-video::-webkit-media-controls-panel,
+.maer-login-video::-webkit-media-controls-start-playback-button,
+.maer-login-video::-webkit-media-controls-overlay-play-button {
   display: none !important;
   opacity: 0 !important;
 }
@@ -166,8 +148,10 @@
   gap: 18px;
   align-items: center;
   padding: 0 2rem;
-  border-top: 1px solid var(--maer-line);
   font-size: 12px;
+  grid-column: 1;
+  grid-row: 2;
+  background: var(--maer-white);
 }
 .maer-login-foot a { color: var(--maer-text-2); text-decoration: none; }
 .maer-error { color: var(--maer-danger); font-size: 14px; }
@@ -325,8 +309,56 @@
 .maer-timeline li { padding: 10px 0 10px 16px; border-left: 2px solid var(--maer-blue); margin-left: 6px; }
 
 @media (max-width: 980px) {
-  .maer-login-main, .maer-docs, .maer-create, .maer-plans, .maer-kpis { grid-template-columns: 1fr; }
-  .maer-login-left, .maer-login-aside { min-height: auto; }
-  .maer-login-aside { min-height: 42vh; }
+  .maer-login {
+    overflow-x: hidden;
+  }
+  .maer-login-main {
+    display: flex;
+    flex-direction: column;
+    grid-template-columns: none;
+    grid-template-rows: none;
+    min-height: 100dvh;
+    min-height: 100svh;
+  }
+  .maer-login-left {
+    display: block;
+    flex: 0 0 auto;
+    grid-column: auto;
+    grid-row: auto;
+  }
+  .maer-login-bar {
+    height: auto;
+    padding: calc(12px + env(safe-area-inset-top)) 20px 0;
+  }
+  .maer-login-copy {
+    padding: 20px 20px 12px;
+  }
+  .maer-login-copy h1 {
+    font-size: clamp(1.75rem, 7vw, 2.15rem);
+    margin-bottom: 8px;
+  }
+  .maer-login-copy p {
+    font-size: 14px;
+    margin: 0 0 10px;
+  }
+  .maer-field { margin: 18px 0 12px; }
+  .maer-login-aside {
+    position: relative;
+    flex: 1 0 auto;
+    grid-column: auto;
+    grid-row: auto;
+    width: 100%;
+    min-height: 220px;
+    height: min(38dvh, 280px);
+  }
+  .maer-login-foot {
+    flex: 0 0 auto;
+    grid-column: auto;
+    grid-row: auto;
+    height: auto;
+    padding: 14px 20px calc(18px + env(safe-area-inset-bottom));
+    gap: 16px;
+  }
+  .maer-docs, .maer-create, .maer-plans, .maer-kpis { grid-template-columns: 1fr; }
   .maer-top-search { display: none; }
 }

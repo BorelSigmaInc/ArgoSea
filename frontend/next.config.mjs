@@ -6,6 +6,22 @@ const nextConfig = {
   turbopack: {
     root: process.cwd(),
   },
+  async rewrites() {
+    return {
+      beforeFiles: [
+        {
+          source: "/",
+          has: [{ type: "host", value: "maer-marine.q-dit.com" }],
+          destination: "/marine-maer/sign-in/",
+        },
+        {
+          source: "/",
+          has: [{ type: "host", value: "marine.maersat.com" }],
+          destination: "/marine-maer/sign-in/",
+        },
+      ],
+    };
+  },
   async redirects() {
     return [
       { source: "/argo", destination: "/platform/", permanent: true },

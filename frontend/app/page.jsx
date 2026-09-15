@@ -1,3 +1,5 @@
+import { headers } from "next/headers";
+import { redirect } from "next/navigation";
 import Shell from "../components/atalanta/Shell";
 import Footer from "../components/atalanta/Footer";
 import ContactSection from "../components/atalanta/ContactSection";
@@ -6,6 +8,7 @@ import Reveal from "../components/atalanta/Reveal";
 import StickyCards from "../components/atalanta/StickyCards";
 import PatternDivider from "../components/atalanta/PatternDivider";
 import { SITE } from "../lib/atalanta/content";
+import { isMarineConsoleHost } from "../lib/maer/hosts";
 
 export const metadata = {
   title: "Home",
@@ -13,7 +16,13 @@ export const metadata = {
   alternates: { canonical: "/" },
 };
 
-export default function HomePage() {
+export default async function HomePage() {
+  const hdrs = await headers();
+  const host = hdrs.get("x-forwarded-host") || hdrs.get("host") || "";
+  if (isMarineConsoleHost(host)) {
+    redirect("/marine-maer/sign-in/");
+  }
+
   return (
     <Shell>
       <main>
