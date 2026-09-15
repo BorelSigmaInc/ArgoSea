@@ -118,9 +118,9 @@ export default function SignInView() {
           )}
         </section>
       <footer className="maer-login-foot">
-        <Link href="/privacy-policy/">Privacy</Link>
-        <Link href="/terms-of-use/">Terms</Link>
-        <Link href="/contact/">Need help?</Link>
+        <a href="https://www.maersat.com/privacy-policy/">Privacy</a>
+        <a href="https://www.maersat.com/terms-of-use/">Terms</a>
+        <a href="https://www.maersat.com/contact/">Need help?</a>
       </footer>
         </div>
         <aside className="maer-login-aside" aria-hidden="true">
