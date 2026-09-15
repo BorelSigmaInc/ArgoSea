@@ -16,7 +16,8 @@ node_modules/
 !.env.example
 
 # Data
-data/quantum/*.png
+data/maer/store.json
+data/maer/*.tmp
 *.bak
 
 # OS

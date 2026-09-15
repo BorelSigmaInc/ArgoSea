@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "argosea"
-version = "0.3.1"
+version = "0.4.0"
 description = "ArgoSea: provably correct maritime decision-making platform"
 requires-python = ">=3.12"
 

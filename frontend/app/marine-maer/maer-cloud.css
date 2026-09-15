@@ -1,0 +1,275 @@
+.maer-cloud {
+  --maer-blue: #0f62fe;
+  --maer-blue-h: #0353e9;
+  --maer-text: #161616;
+  --maer-text-2: #525252;
+  --maer-ui: #f4f4f4;
+  --maer-line: #e0e0e0;
+  --maer-white: #fff;
+  --maer-danger: #da1e28;
+  --maer-ok: #198038;
+  min-height: 100vh;
+  background: var(--maer-ui);
+  color: var(--maer-text);
+  font-family: "IBM Plex Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.maer-cloud a { color: var(--maer-blue); }
+
+.maer-login {
+  min-height: 100vh;
+  background: var(--maer-white);
+  color: var(--maer-text);
+  font-family: "IBM Plex Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+}
+
+.maer-login-bar {
+  height: 48px;
+  display: flex;
+  align-items: center;
+  padding: 0 2rem;
+  gap: 10px;
+  color: var(--maer-text);
+  text-decoration: none;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.maer-login-bar svg { width: 22px; height: 24px; }
+
+.maer-login-main {
+  flex: 1;
+  display: grid;
+  grid-template-columns: minmax(280px, 480px) 1fr;
+  min-height: calc(100vh - 96px);
+}
+
+.maer-login-copy {
+  padding: 64px 8vw 48px;
+}
+
+.maer-login-copy h1 {
+  font-size: 2.5rem;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  margin: 0 0 12px;
+}
+
+.maer-login-copy p { color: var(--maer-text-2); line-height: 1.45; }
+
+.maer-field { margin: 28px 0 18px; }
+.maer-field label {
+  display: block;
+  font-size: 12px;
+  margin-bottom: 8px;
+}
+.maer-field input {
+  width: 100%;
+  border: 0;
+  border-bottom: 1px solid #8d8d8d;
+  background: transparent;
+  font: inherit;
+  font-size: 16px;
+  padding: 8px 0;
+  outline: none;
+}
+.maer-field input:focus { border-bottom: 2px solid var(--maer-blue); }
+
+.maer-btn {
+  border: 0;
+  background: var(--maer-blue);
+  color: #fff;
+  min-height: 48px;
+  padding: 0 16px;
+  font: inherit;
+  font-size: 14px;
+  cursor: pointer;
+  width: 100%;
+}
+.maer-btn:hover { background: var(--maer-blue-h); }
+.maer-btn:disabled { background: #8d8d8d; cursor: not-allowed; }
+.maer-btn.ghost {
+  background: transparent;
+  color: var(--maer-blue);
+  width: auto;
+  min-height: 32px;
+  padding: 0;
+}
+
+.maer-login-aside {
+  background:
+    linear-gradient(180deg, rgba(15, 98, 254, 0.08), rgba(55, 53, 47, 0.18)),
+    url("/media/hero-earth.jpg") center / cover no-repeat;
+}
+
+.maer-login-foot {
+  height: 48px;
+  display: flex;
+  gap: 18px;
+  align-items: center;
+  padding: 0 2rem;
+  border-top: 1px solid var(--maer-line);
+  font-size: 12px;
+}
+.maer-login-foot a { color: var(--maer-text-2); text-decoration: none; }
+.maer-error { color: var(--maer-danger); font-size: 14px; }
+
+.maer-top {
+  height: 48px;
+  background: #161616;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+  gap: 18px;
+  position: sticky;
+  top: 0;
+  z-index: 20;
+}
+.maer-top a { color: #fff; text-decoration: none; }
+.maer-top-brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  min-width: 160px;
+}
+.maer-top-brand svg { width: 18px; height: 20px; color: #fff; }
+.maer-top nav { display: flex; gap: 16px; font-size: 14px; }
+.maer-top nav a[data-on="true"] { box-shadow: inset 0 -2px 0 #fff; padding-bottom: 4px; }
+.maer-top-search {
+  margin-left: auto;
+  background: #393939;
+  border: 0;
+  color: #fff;
+  padding: 8px 12px;
+  min-width: 220px;
+  font: inherit;
+}
+.maer-top-user { font-size: 12px; color: #c6c6c6; }
+
+.maer-crumb {
+  padding: 12px 24px;
+  font-size: 13px;
+  color: var(--maer-text-2);
+  background: var(--maer-white);
+  border-bottom: 1px solid var(--maer-line);
+}
+.maer-crumb a { color: var(--maer-blue); text-decoration: none; }
+
+.maer-docs {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  min-height: calc(100vh - 96px);
+  background: var(--maer-white);
+}
+.maer-sidenav {
+  border-right: 1px solid var(--maer-line);
+  padding: 16px 0 40px;
+  overflow: auto;
+}
+.maer-sidenav h3 {
+  margin: 18px 16px 8px;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--maer-text-2);
+}
+.maer-sidenav a {
+  display: block;
+  padding: 7px 16px;
+  color: var(--maer-text);
+  text-decoration: none;
+  font-size: 14px;
+}
+.maer-sidenav a[data-on="true"],
+.maer-sidenav a:hover { background: var(--maer-ui); color: var(--maer-blue); }
+
+.maer-doc {
+  padding: 32px 40px 80px;
+  max-width: 860px;
+}
+.maer-doc h1 { font-weight: 400; font-size: 2rem; margin: 0 0 8px; }
+.maer-doc .dek { color: var(--maer-text-2); margin: 0 0 24px; }
+.maer-doc p { line-height: 1.6; }
+.maer-code {
+  background: var(--maer-ui);
+  border: 1px solid var(--maer-line);
+  padding: 12px 14px;
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  font-size: 13px;
+  overflow: auto;
+}
+
+.maer-create {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 340px;
+  gap: 24px;
+  padding: 24px;
+  align-items: start;
+}
+.maer-panel {
+  background: var(--maer-white);
+  border: 1px solid var(--maer-line);
+  padding: 20px 22px;
+}
+.maer-panel h2 { margin: 0 0 16px; font-size: 18px; font-weight: 600; }
+.maer-plans { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+.maer-plan {
+  border: 1px solid var(--maer-line);
+  padding: 12px;
+  cursor: pointer;
+  background: #fff;
+  text-align: left;
+  font: inherit;
+}
+.maer-plan[data-on="true"] { outline: 2px solid var(--maer-blue); }
+.maer-plan b { display: block; }
+.maer-slider { margin: 14px 0; }
+.maer-slider label { display: flex; justify-content: space-between; font-size: 13px; }
+.maer-slider input { width: 100%; }
+.maer-summary { position: sticky; top: 64px; }
+.maer-summary dl { display: grid; grid-template-columns: 1fr auto; gap: 8px 12px; margin: 0 0 16px; }
+.maer-summary dt { color: var(--maer-text-2); }
+.maer-kpis { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; padding: 0 24px 8px; }
+.maer-kpi { background: #fff; border: 1px solid var(--maer-line); padding: 16px; }
+.maer-kpi span { display: block; color: var(--maer-text-2); font-size: 12px; }
+.maer-kpi strong { font-size: 28px; font-weight: 400; }
+.maer-tabs { display: flex; gap: 0; padding: 0 24px; border-bottom: 1px solid var(--maer-line); }
+.maer-tabs button {
+  border: 0;
+  background: transparent;
+  padding: 12px 16px;
+  font: inherit;
+  cursor: pointer;
+  color: var(--maer-text-2);
+}
+.maer-tabs button[data-on="true"] {
+  color: var(--maer-text);
+  box-shadow: inset 0 -2px 0 var(--maer-blue);
+}
+.maer-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+.maer-table th, .maer-table td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--maer-line); }
+.maer-table th { font-size: 12px; color: var(--maer-text-2); font-weight: 600; }
+.maer-pill {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: #d0e2ff;
+  color: #0043ce;
+  font-size: 12px;
+}
+.maer-pill.ok { background: #a7f0ba; color: #0e6027; }
+.maer-pill.warn { background: #f1c21b; color: #161616; }
+.maer-check { display: flex; gap: 10px; align-items: flex-start; padding: 10px 0; border-bottom: 1px solid var(--maer-line); }
+.maer-total { font-size: 28px; font-weight: 400; margin: 8px 0 16px; }
+.maer-timeline { list-style: none; padding: 0; margin: 0; }
+.maer-timeline li { padding: 10px 0 10px 16px; border-left: 2px solid var(--maer-blue); margin-left: 6px; }
+
+@media (max-width: 980px) {
+  .maer-login-main, .maer-docs, .maer-create, .maer-plans, .maer-kpis { grid-template-columns: 1fr; }
+  .maer-login-aside { min-height: 180px; }
+  .maer-top-search { display: none; }
+}

@@ -12,6 +12,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 const FOOTER_NAV = [
   { href: "/marine-mis", label: "Marine" },
+  { href: "/marine-maer/sign-in", label: "Console" },
   { href: "/update", label: "Update" },
   { href: "/platform", label: "Platform" },
   { href: "/articles", label: "Learn" },

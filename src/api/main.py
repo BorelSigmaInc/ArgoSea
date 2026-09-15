@@ -20,6 +20,7 @@ from config.settings import (
 from src.verification.verify_fleet import (
     load_fleet, pairwise_violations, z3_prove_safety_pattern
 )
+from src.api.maer_console import router as maer_router
 
 app = FastAPI(
     title="ArgoSea API",
@@ -36,9 +37,11 @@ app.add_middleware(
     CORSMiddleware,
     allow_origins=cors_origins(),
     allow_credentials=False,
-    allow_methods=["GET", "HEAD", "OPTIONS"],
+    allow_methods=["GET", "POST", "PUT", "PATCH", "HEAD", "OPTIONS"],
     allow_headers=["*"],
 )
+
+app.include_router(maer_router)
 
 QUANTUM_DIR = DATA_DIR / "quantum"
 FLEET_PATH = DATA_DIR / "sample_ais.json"

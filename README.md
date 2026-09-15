@@ -19,7 +19,10 @@ ArgoSea combines real maritime intelligence (AIS, vessel, port, weather) with fo
 ## Frontends
 
 - **Customer:** `/`, `/platform`, `/marine-mis`, `/update` (Maer), articles, careers, contact
+- **Marine Maer console:** `/marine-maer/sign-in`, `/marine-maer/api-doc`, `/marine-maer/partners`, `/marine-maer/user`
 - **Internal:** `/internal` (API health, z3 proof, AIS table, QPU job history). `/quantum` redirects here. Not in public nav; `robots.txt` disallows it.
+
+Demo Maersat IDs (password `Maer-Console-2026`): `partner@maersat.com`, `user@maersat.com`, `ops@maersat.com`.
 
 ## Endpoints
 
@@ -37,6 +40,9 @@ Internal:
 - `GET /quantum/latest/refined` — latest refined QPU record
 - `GET /overview` — one payload for the internal console
 - `GET /docs` — OpenAPI UI
+- `POST /maer/login` · `GET /maer/me` · `GET /maer/catalog` · `GET /maer/flow`
+- Partner: `GET /maer/partners/dashboard` · `POST /maer/partners/offerings`
+- Customer: `GET /maer/user/workspace` · `POST /maer/user/estimates` · `POST /maer/user/orders`
 
 ## Local Development
 
@@ -62,5 +68,7 @@ The Next.js proxy at `/api/proxy/*` forwards to `UPSTREAM_API_URL` (default Hetz
 Keep published API port **8010**. Do not publish Postgres/Kafka; other projects already share that host.
 
 ```bash
-docker compose up -d --build argosea-api
+docker compose up -d --build argosea-api argosea-web
 ```
+
+`argosea-web` publishes Next.js on host **3010** (avoids Arkham on 3000). Route `marine.maersat.com` through the existing user Cloudflare Tunnel to `http://127.0.0.1:3010` — no sudo/nginx. Do not change other tunnel hostnames.

@@ -5,6 +5,8 @@ Disallow: /internal/
 Disallow: /quantum
 Disallow: /quantum/
 Disallow: /api/
+Disallow: /marine-maer/partners
+Disallow: /marine-maer/user
 
 Host: https://www.maersat.com
 Sitemap: https://www.maersat.com/sitemap.xml

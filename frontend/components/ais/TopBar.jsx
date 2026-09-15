@@ -45,7 +45,7 @@ export default function TopBar({
       </nav>
 
       <div className="ais-top-actions">
-        <Link href="/contact/" className="ais-ghost">Help</Link>
+        <Link href="/marine-maer/sign-in/" className="ais-ghost">Sign in</Link>
         <Link href="/update/" className="ais-login">Maer</Link>
       </div>
     </header>

@@ -8,6 +8,8 @@ export default function sitemap() {
     "/update/",
     "/products/maer/",
     "/marine-mis/",
+    "/marine-maer/sign-in/",
+    "/marine-maer/api-doc/",
     "/articles/all/1/",
     "/articles/research/1/",
     "/articles/ideas/1/",
