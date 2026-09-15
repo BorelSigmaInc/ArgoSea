@@ -4,7 +4,10 @@ import { useState } from "react";
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 import Logo from "../../components/atalanta/Logo";
+import MuxMedia from "../../components/atalanta/MuxMedia";
 import { maerFetch, writeSession } from "../../lib/maer/session";
+
+const LOGIN_PLAYBACK_ID = "MH4N028gpYMpL9wghh6o4qaOVoM8Z9XD936Ro00YGUkd8";
 
 export default function SignInView() {
   const router = useRouter();
@@ -49,11 +52,12 @@ export default function SignInView() {
 
   return (
     <div className="maer-login">
+      <div className="maer-login-main">
+        <div className="maer-login-left">
       <Link href="/" className="maer-login-bar">
         <Logo />
         Maersat
       </Link>
-      <div className="maer-login-main">
         <section className="maer-login-copy">
           <h1>Log in to Maersat</h1>
           {step === "email" ? (
@@ -113,13 +117,16 @@ export default function SignInView() {
             </form>
           )}
         </section>
-        <aside className="maer-login-aside" aria-hidden="true" />
-      </div>
       <footer className="maer-login-foot">
         <Link href="/privacy-policy/">Privacy</Link>
         <Link href="/terms-of-use/">Terms</Link>
         <Link href="/contact/">Need help?</Link>
       </footer>
+        </div>
+        <aside className="maer-login-aside" aria-hidden="true">
+          <MuxMedia className="maer-login-mux" playbackId={LOGIN_PLAYBACK_ID} />
+        </aside>
+      </div>
     </div>
   );
 }
