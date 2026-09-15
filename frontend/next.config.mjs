@@ -20,6 +20,8 @@ const nextConfig = {
       { source: "/articles/software-understanding-and-U.S.-national-security/", destination: "/articles/national-security-gap/", permanent: true },
       { source: "/articles/inl-announcement", destination: "/articles/energy-systems/", permanent: true },
       { source: "/articles/inl-announcement/", destination: "/articles/energy-systems/", permanent: true },
+      { source: "/quantum", destination: "/internal/", permanent: false },
+      { source: "/quantum/", destination: "/internal/", permanent: false },
     ];
   },
 };

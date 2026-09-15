@@ -1,5 +1,10 @@
 User-agent: *
 Allow: /
+Disallow: /internal
+Disallow: /internal/
+Disallow: /quantum
+Disallow: /quantum/
+Disallow: /api/
 
 Host: https://www.maersat.com
 Sitemap: https://www.maersat.com/sitemap.xml

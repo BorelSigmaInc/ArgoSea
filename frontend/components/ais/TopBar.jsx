@@ -34,20 +34,19 @@ export default function TopBar({
         />
       </form>
 
-      <nav className="ais-nav">
+      <nav className="ais-nav" aria-label="Customer">
         <Link href={homeHref} className="active">
           Map
         </Link>
         <Link href="/">Home</Link>
-        <Link href="/quantum">Services</Link>
+        <Link href="/platform/">Platform</Link>
         <a href="#filters">Data</a>
         <a href="#layers">Intelligence</a>
-        <Link href="/quantum">QPU</Link>
       </nav>
 
       <div className="ais-top-actions">
-        <button type="button" className="ais-ghost">Help</button>
-        <button type="button" className="ais-login">Log in</button>
+        <Link href="/contact/" className="ais-ghost">Help</Link>
+        <Link href="/update/" className="ais-login">Maer</Link>
       </div>
     </header>
   );

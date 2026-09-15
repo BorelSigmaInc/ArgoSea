@@ -32,6 +32,25 @@ VERIFICATION_TIMEOUT_S = int(os.getenv("ARGO_VERIFY_TIMEOUT", "300"))
 # API
 API_HOST = os.getenv("ARGO_API_HOST", "0.0.0.0")
 API_PORT = int(os.getenv("ARGO_API_PORT", "8000"))
+API_VERSION = os.getenv("ARGO_API_VERSION", "0.3.1")
+
+_DEFAULT_CORS = [
+    "http://localhost:3000",
+    "http://localhost:3001",
+    "http://127.0.0.1:3000",
+    "http://127.0.0.1:3001",
+    "https://www.maersat.com",
+    "https://maersat.com",
+]
+
+
+def cors_origins() -> list[str]:
+    extra = [o.strip() for o in os.getenv("ARGO_CORS_ORIGINS", "").split(",") if o.strip()]
+    seen: list[str] = []
+    for origin in _DEFAULT_CORS + extra:
+        if origin not in seen:
+            seen.append(origin)
+    return seen
 
 if __name__ == "__main__":
     print("ArgoSea settings loaded:")

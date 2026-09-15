@@ -950,6 +950,16 @@ body.at-menu-open {
 .at-cta-lg:hover { color: var(--at-grey-1); }
 .at-mobile-subheading { display: none; }
 
+.at-live-status {
+  margin: 18px 0 0;
+  font-family: var(--at-head), sans-serif;
+  font-size: 13px;
+  letter-spacing: 0.02em;
+}
+.at-live-status.is-up { color: #b7d7c2; }
+.at-live-status.is-down { color: #d7b7b7; }
+.at-live-status.is-wait { color: var(--at-grey-1); }
+
 .at-cta {
   color: var(--at-white);
   text-decoration: underline;

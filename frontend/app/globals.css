@@ -117,6 +117,8 @@ body:has(.ais-shell) {
   background: transparent;
   cursor: pointer;
   font: inherit;
+  text-decoration: none;
+  display: inline-block;
 }
 
 .ais-ghost {

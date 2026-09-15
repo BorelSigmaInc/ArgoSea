@@ -41,6 +41,7 @@ export default function AisLiveMap({
 }) {
   const [mapApi, setMapApi] = useState(null);
   const [vessels, setVessels] = useState(() => generateFleet());
+  const [apiCount, setApiCount] = useState(0);
   const [tick, setTick] = useState(0);
   const [countdown, setCountdown] = useState(REFRESH_SECONDS);
   const [activeTool, setActiveTool] = useState(null);
@@ -58,14 +59,16 @@ export default function AisLiveMap({
   );
 
   useEffect(() => {
-    fetch("/api/proxy/fleet")
+    fetch("/api/proxy/fleet/")
       .then((r) => (r.ok ? r.json() : []))
       .then((data) => {
         if (!Array.isArray(data) || data.length === 0) return;
+        const extra = enrichApiFleet(data);
+        setApiCount(extra.length);
         setVessels((prev) => {
           const ids = new Set(prev.map((v) => v.mmsi));
-          const extra = enrichApiFleet(data).filter((v) => !ids.has(v.mmsi));
-          return extra.length ? [...prev, ...extra] : prev;
+          const unique = extra.filter((v) => !ids.has(v.mmsi));
+          return unique.length ? [...prev, ...unique] : prev;
         });
       })
       .catch(() => {});
@@ -265,7 +268,9 @@ export default function AisLiveMap({
         />
 
         <div className="ais-scale">
-          Demo AIS overlay · {visible.length.toLocaleString()} objects · zoom follows URL
+          Live map · {visible.length.toLocaleString()} objects
+          {apiCount ? ` · ${apiCount} API-verified` : ""}
+          {" · zoom follows URL"}
         </div>
       </div>
     </div>

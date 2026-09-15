@@ -2,6 +2,7 @@ import Link from "next/link";
 import Shell from "../../components/atalanta/Shell";
 import Footer from "../../components/atalanta/Footer";
 import MuxMedia from "../../components/atalanta/MuxMedia";
+import LiveStatus from "../../components/atalanta/LiveStatus";
 import { SITE } from "../../lib/atalanta/content";
 
 export const metadata = {
@@ -19,6 +20,7 @@ export default function PlatformPage() {
         <p>
           Maersat combines AI, formal methods, and digital engineering to make mathematical guarantees practical at the pace systems operate. It enables teams to design, verify, and deploy complex systems with assurance, reducing risk while saving time, money, and lives.
         </p>
+        <LiveStatus />
       </article>
 
       <MuxMedia className="at-wide" playbackId="HKOB6iVRc3od8ISoK9zLlnTnSG9g1ENQO3kDX4CEJXM" />
@@ -46,6 +48,15 @@ export default function PlatformPage() {
             {" · "}
             <Link className="at-cta" href="/marine-mis/">Open Marine</Link>
           </p>
+        </div>
+      </section>
+
+      <section className="at-section" id="capabilities">
+        <div className="at-side"><span className="at-sq" /> Live capabilities</div>
+        <div className="at-copy">
+          <p><b style={{ color: "#fcfaf3" }}>Marine MIS.</b> Track a satellite-aware AIS picture, search vessels and ports, and keep a working fleet list. API-verified positions overlay the live map when the backend is reachable.</p>
+          <p><b style={{ color: "#fcfaf3" }}>Maer.</b> Subscribe for API volume, risk screening, and verification capacity — Starter through Pro+.</p>
+          <p><b style={{ color: "#fcfaf3" }}>Proof, not just telemetry.</b> Formal safety checks and quantum-verified routing run on the ArgoSea API. Job-level QPU detail stays on the internal console, not this site.</p>
         </div>
       </section>
       <Footer />
