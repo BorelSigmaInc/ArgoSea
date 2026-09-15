@@ -1,6 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  allowedDevOrigins: ["127.0.0.1", "localhost", "marine.maersat.com"],
+  allowedDevOrigins: ["127.0.0.1", "localhost", "marine.maersat.com", "maer-marine.q-dit.com"],
   agentRules: false,
   trailingSlash: true,
   turbopack: {

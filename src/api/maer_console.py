@@ -354,7 +354,7 @@ def flow():
         "program": [
             "Next.js app routes under /marine-maer/* (IBM-style Carbon chrome, Maersat brand).",
             "FastAPI /maer/* persists orders, tickets, estimates in data/maer/store.json.",
-            "Vercel / Cloudflare (marine.maersat.com) proxy /api/proxy/* to Hetzner :8010.",
+            "Vercel / Cloudflare (maer-marine.q-dit.com) proxy /api/proxy/* to Hetzner :8010.",
             "Marine MIS: generateFleet + /fleet overlay + URL state centerx/centery/zoom.",
         ],
         "map": "/marine-mis/centerx:27.8/centery:44.0/zoom:3/",

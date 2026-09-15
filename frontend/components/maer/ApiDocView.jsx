@@ -35,8 +35,8 @@ export default function ApiDocView({ topic = "overview" }) {
             <p key={para}>{para}</p>
           ))}
           {topic === "api" && (
-            <pre className="maer-code">{`curl -s https://marine.maersat.com/api/proxy/health/
-curl -s -X POST https://marine.maersat.com/api/proxy/maer/login/ \\
+            <pre className="maer-code">{`curl -s https://maer-marine.q-dit.com/api/proxy/health/
+curl -s -X POST https://maer-marine.q-dit.com/api/proxy/maer/login/ \\
   -H 'content-type: application/json' \\
   -d '{"email":"partner@maersat.com","password":"Maer-Console-2026"}'`}</pre>
           )}

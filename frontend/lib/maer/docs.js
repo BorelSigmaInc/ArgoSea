@@ -62,10 +62,10 @@ export const DOC_PAGES = {
   },
   hosting: {
     title: "Hosting models",
-    dek: "API on Hetzner :8010 · web on Vercel or marine.maersat.com via Cloudflare Tunnel.",
+    dek: "API on Hetzner :8010 · web on Vercel or maer-marine.q-dit.com via Cloudflare Tunnel.",
     body: [
       "The FastAPI service stays on the shared Hetzner host at port 8010 so sibling projects keep their ports. The Next.js console is reached at /marine-maer/*.",
-      "marine.maersat.com is an extra hostname on the existing user-space Cloudflare Tunnel. No nginx and no sudo.",
+      "maer-marine.q-dit.com is an extra hostname on the existing q-dit.com user-space Cloudflare Tunnel. No nginx and no sudo.",
     ],
   },
   provision: {

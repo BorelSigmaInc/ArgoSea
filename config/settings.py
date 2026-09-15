@@ -44,6 +44,7 @@ _DEFAULT_CORS = [
     "https://www.maersat.com",
     "https://maersat.com",
     "https://marine.maersat.com",
+    "https://maer-marine.q-dit.com",
     "https://argo-gamma.vercel.app",
 ]
 

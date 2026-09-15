@@ -71,4 +71,4 @@ Keep published API port **8010**. Do not publish Postgres/Kafka; other projects 
 docker compose up -d --build argosea-api argosea-web
 ```
 
-`argosea-web` publishes Next.js on host **3010** (avoids Arkham on 3000). Route `marine.maersat.com` through the existing user Cloudflare Tunnel to `http://127.0.0.1:3010` — no sudo/nginx. Do not change other tunnel hostnames.
+`argosea-web` publishes Next.js on host **3010** (avoids Arkham on 3000). Public console hostname is **https://maer-marine.q-dit.com** on the existing q-dit.com Cloudflare Tunnel (`127.0.0.1:3010`). No sudo/nginx. Do not change other tunnel hostnames.
